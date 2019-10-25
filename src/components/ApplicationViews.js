@@ -4,6 +4,8 @@ import { withRouter } from "react-router-dom"
 import Register from "./auth/Register"
 import Login from "./auth/Login"
 import useSimpleAuth from "../hooks/ui/useSimpleAuth"
+import PatientList from "./patient/patient"
+import PatientForm from "./patient/PatientForm"
 
 
 const ApplicationViews = () => {
@@ -15,6 +17,7 @@ const ApplicationViews = () => {
               exact path="/" render={props => {
                   return (
                       <>
+                      <PatientList {...props} />
                       </>
                   )
               }}
@@ -33,6 +36,12 @@ const ApplicationViews = () => {
         path="/login"
         render={props => {
           return <Login {...props} />;
+        }}
+      />
+      <Route
+        path="/patientform"
+        render={props => {
+          return <PatientForm {...props} />;
         }}
       />
       
