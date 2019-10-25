@@ -41,6 +41,11 @@ const PatientList = props => {
   return (
     <>
     <h2><strong>Patients</strong></h2>
+    <button  
+    type="button" onClick={() => props.history.push("/patientform")}>
+    Add New Patient
+    </button>
+    
     {patients.map(patient => (
 
       <PatientListCard key={patient.id} patient={patient} {...props} />
