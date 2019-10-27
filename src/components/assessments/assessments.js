@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react"
-import VitalSignsCard from "./VitalSignsCard";
+import AssessmentCard from "./assessmentcard"
 
 // Author: Adam Knowles
 // Purpose: Show all vital signs and related information that a user has shown for sale
 // Methods: GET, DELETE
 
-const VitalSigns = props => {
+const Assessments = props => {
     
 
     
     
-  const [vitalsigns, setVitalSigns] = useState([])
+  const [assessments, setAssessments] = useState([])
   
 
-  const getVitalSigns = () => {
-    fetch(`http://localhost:8000/vitalsigns`, {
+  const getAssessments = () => {
+    fetch(`http://localhost:8000/assessments`, {
       method: "GET",
       headers: {
         
@@ -24,11 +24,11 @@ const VitalSigns = props => {
       }
     })
       .then(response => response.json())
-      .then(setVitalSigns)
+      .then(setAssessments)
   }
 
-  const deleteVitalSigns = (id) => {
-    fetch(`http://localhost:8000/vitalsigns/${id}`, {
+  const deleteAssessments = (id) => {
+    fetch(`http://localhost:8000/assessments/${id}`, {
         "method": "DELETE",
         "headers": {
           "Accept": "application/json",
@@ -37,10 +37,10 @@ const VitalSigns = props => {
             
         }
     })
-        .then(getVitalSigns)
+        .then(getAssessments)
 }
 
-  useEffect(getVitalSigns, [])
+  useEffect(getAssessments, [])
 
   return (
     
@@ -49,9 +49,9 @@ const VitalSigns = props => {
         
         <div>
         
-        {vitalsigns.filter(vitalsign => vitalsign.patient_id === +props.match.params.patientProfileId).map(vitalsign => (
+        {assessments.filter(assessment => assessment.patient_id === +props.match.params.patientProfileId).map(assessment => (
     
-          <VitalSignsCard key={vitalsign.id} vitalsign={vitalsign} {...props} />
+          <AssessmentCard key={assessment.id} assessment={assessment} {...props} />
         ))}
           
           </div>
@@ -59,6 +59,4 @@ const VitalSigns = props => {
 }
   
 
-export default VitalSigns
-
-
+export default Assessments

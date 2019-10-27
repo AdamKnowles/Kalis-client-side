@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom";
+import { Table } from 'reactstrap';
 
 
 
@@ -10,24 +11,45 @@ import { Link } from "react-router-dom";
 // Methods: GET, DELETE
 
 const VitalSignsCard = props => {
+    
   
   return (
     <>
-      <main className="vitalsigns">
-        <div className="card">
-          <div className="card-body">
-           <div className="card-text"> 
-          Time: {props.vitalsign.time} </div> 
-          <div>Temperature {props.vitalsign.temperature}</div>
-          <div>Blood Pressure: {props.vitalsign.blood_pressure}</div>
-          <div>Heart Rate: {props.vitalsign.heart_rate}</div>
-          <div>Respirations: {props.vitalsign.respiration_rate}</div>
-          <div>O2 Sats: {props.vitalsign.oxygen_saturation}</div>
-          </div>
-        </div>
-      </main>
+    <h3 className = "text-center mb-4">{props.vitalsign.patient.first_name} {props.vitalsign.patient.last_name}</h3>
+      <Table bordered >
+      
+      <tbody>
+      <tr>
+          <th scope="row">Time</th>
+          <td>{props.vitalsign.time}</td>
+        </tr>
+      <tr>
+          <th scope="row">Temp</th>
+          <td>{props.vitalsign.temperature}</td>
+        </tr>
+        <tr>
+          <th scope="row">HR</th>
+          <td>{props.vitalsign.heart_rate}</td>
+        </tr>
+        <tr>
+          <th scope="row">BP</th>
+          <td>{props.vitalsign.blood_pressure}</td>
+        </tr>
+        <tr>
+          <th scope="row">RR</th>
+          <td>{props.vitalsign.respiration_rate}</td>
+        </tr>
+        <tr>
+          <th scope="row">02 Sat</th>
+          <td>{props.vitalsign.oxygen_saturation}</td>
+        </tr>
+      </tbody>
+    </Table>
     </>
   )
 }
 
 export default VitalSignsCard
+
+
+  
