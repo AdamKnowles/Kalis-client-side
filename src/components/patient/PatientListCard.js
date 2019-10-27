@@ -1,4 +1,6 @@
 import React from "react"
+import { Link } from "react-router-dom";
+import PatientProfile from "./patientProfile"
 
 
 
@@ -14,7 +16,8 @@ const PatientListCard = props => {
       <main className="patients">
         <div className="card">
           <div className="card-body">
-          <h3 className="card-text">{props.patient.first_name} {props.patient.last_name} </h3>
+          <Link className="card-text" to={`/patientProfile/${props.patient.id}`}><h3>
+          {props.patient.first_name} {props.patient.last_name}</h3></Link>   
           <div>Birth Date {props.patient.birth_date}</div>
           <div>Sex: {props.patient.sex}</div>
           <div>Diagnosis: {props.patient.diagnosis}</div>
