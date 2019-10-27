@@ -48,6 +48,7 @@ const useSimpleAuth = () => {
     const logout = () => {
         setIsLoggedIn(false)
         localStorage.removeItem("kalis_token")
+        
     }
 
     return { isAuthenticated, logout, login, register }

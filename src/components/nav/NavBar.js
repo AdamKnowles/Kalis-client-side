@@ -22,7 +22,7 @@ const NavBar = props => {
         {isAuthenticated() ? (
           <li className="nav-item">
             <Link className="nav-link"
-            onClick={() => localStorage.clear()} to="/">
+            onClick={() => localStorage.clear()} to="login">
               Logout
             </Link>
           </li>
