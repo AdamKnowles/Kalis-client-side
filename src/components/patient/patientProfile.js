@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import VitalSigns from "../vitalsigns/vitalsigns";
+import Assessments from "../assessments/assessments"
 import {TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap'
 import classnames from 'classnames';
 
@@ -78,7 +79,8 @@ const PatientProfile = props => {
     <Row>
       <Col sm="12">
       <Card body>
-
+        {/* rendering the assessments component */}
+      <Assessments {...props} />
         </Card>
       </Col>
     </Row>
