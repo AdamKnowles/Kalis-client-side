@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom";
 import PatientProfile from "./patientProfile"
+import {Button} from "reactstrap"
 
 
 
@@ -21,6 +22,7 @@ const PatientListCard = props => {
           <div>Birth Date {props.patient.birth_date}</div>
           <div>Sex: {props.patient.sex}</div>
           <div>Diagnosis: {props.patient.diagnosis}</div>
+          <Button onClick={() => props.deletePatient(props.patient.id)}>Delete</Button>
           </div>
         </div>
       </main>

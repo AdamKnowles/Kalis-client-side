@@ -23,13 +23,13 @@ const PatientList = props => {
       .then(setPatients)
   }
 
-  const deleteMyProducts = (id) => {
-    fetch(`http://localhost:8000/products/${id}`, {
+  const deletePatient = (id) => {
+    fetch(`http://localhost:8000/patients/${id}`, {
         "method": "DELETE",
         "headers": {
           "Accept": "application/json",
-          "Content-Type": "application/json",
-          "Authorization": `Token ${localStorage.getItem("bangazon_token")}`
+          "Content-Type": "application/json"
+          
             
         }
     })
@@ -48,7 +48,7 @@ const PatientList = props => {
     
     {patients.map(patient => (
 
-      <PatientListCard key={patient.id} patient={patient} {...props} />
+      <PatientListCard key={patient.id} patient={patient} deletePatient={deletePatient} {...props} />
     ))}
       
     </>
