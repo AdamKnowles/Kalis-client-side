@@ -8,6 +8,7 @@ import PatientList from "./patient/patient"
 import PatientForm from "./patient/PatientForm"
 import PatientProfile from "./patient/patientProfile"
 import VitalSigns from "./vitalsigns/vitalsigns"
+import MyPatients from "./mypatients/mypatientlist"
 
 
 const ApplicationViews = () => {
@@ -43,6 +44,12 @@ const ApplicationViews = () => {
         path="/register"
         render={props => {
           return <Register {...props} />;
+        }}
+      />
+      <Route
+        path="/mypatients"
+        render={props => {
+          return <MyPatients {...props} />;
         }}
       />
 
