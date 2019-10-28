@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom";
 import { Table } from 'reactstrap';
+import VitalSignForm from "./vitalsignform";
 
 
 
@@ -15,7 +16,8 @@ const VitalSignsCard = props => {
   
   return (
     <>
-    <h3 className = "text-center mb-4">{props.vitalsign.patient.first_name} {props.vitalsign.patient.last_name}</h3>
+    
+    
       <Table bordered >
       
       <tbody>
