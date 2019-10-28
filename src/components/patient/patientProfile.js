@@ -4,6 +4,7 @@ import VitalSigns from "../vitalsigns/vitalsigns";
 import Assessments from "../assessments/assessments"
 import {TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap'
 import classnames from 'classnames';
+import VitalSignForm from "../vitalsigns/vitalsignform"
 
 
 // Author: Adam Knowles
@@ -68,6 +69,7 @@ const PatientProfile = props => {
         <Row>
           <Col sm="12">
           <Card body>
+          <VitalSignForm {...props} />
       {/* vital signs component rendered */}
       <VitalSigns {...props} />
 

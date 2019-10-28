@@ -50,10 +50,11 @@ const VitalSigns = props => {
         <div>
         
         {vitalsigns.filter(vitalsign => vitalsign.patient_id === +props.match.params.patientProfileId).map(vitalsign => (
+            <>
     
           <VitalSignsCard key={vitalsign.id} vitalsign={vitalsign} {...props} />
+          </>
         ))}
-          
           </div>
 );
 }
