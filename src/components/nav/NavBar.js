@@ -20,6 +20,13 @@ const NavBar = props => {
         </li>
         ) : null }
         {isAuthenticated() ? (
+        <li className="nav-item">
+          <Link className="nav-link" to="mypatients">
+            My Patients
+          </Link>
+        </li>
+        ) : null }
+        {isAuthenticated() ? (
           <li className="nav-item">
             <Link className="nav-link"
             onClick={() => localStorage.clear()} to="login">
