@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import AssessmentCard from "./assessmentcard"
+import AssessmentForm from "./assessmentform"
 
 // Author: Adam Knowles
 // Purpose: Show all vital signs and related information that a user has shown for sale
@@ -48,7 +49,7 @@ const Assessments = props => {
       
         
         <div>
-        
+        <AssessmentForm getAssessments={getAssessments} {...props} />
         {assessments.filter(assessment => assessment.patient_id === +props.match.params.patientProfileId).map(assessment => (
     
           <AssessmentCard key={assessment.id} assessment={assessment} {...props} />

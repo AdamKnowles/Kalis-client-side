@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import VitalSignsCard from "./VitalSignsCard";
+import VitalSignForm from "./vitalsignform"
 
 // Author: Adam Knowles
 // Purpose: Show all vital signs and related information that a user has shown for sale
@@ -49,9 +50,9 @@ const VitalSigns = props => {
         
         <div>
         
+          <VitalSignForm getVitalSigns={getVitalSigns}  {...props} /> 
         {vitalsigns.filter(vitalsign => vitalsign.patient_id === +props.match.params.patientProfileId).map(vitalsign => (
             <>
-    
           <VitalSignsCard key={vitalsign.id} vitalsign={vitalsign} {...props} />
           </>
         ))}

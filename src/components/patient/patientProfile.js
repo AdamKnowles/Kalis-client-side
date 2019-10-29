@@ -38,9 +38,12 @@ const PatientProfile = props => {
   };
 
   
+  
   useEffect(() => {
     getPatient(props.patientProfileId);
   }, []);
+
+  
   
 
   //If the category ID matches the categoryProfile ID, show all products and information associated with that category
@@ -70,9 +73,9 @@ const PatientProfile = props => {
         <Row>
           <Col sm="12">
           <Card body>
-          <VitalSignForm {...props} />
+          
       {/* vital signs component rendered */}
-      <VitalSigns {...props} />
+      <VitalSigns  {...props} />
 
       </Card>
       </Col>
@@ -82,7 +85,7 @@ const PatientProfile = props => {
     <Row>
       <Col sm="12">
       <Card body>
-        <AssessmentForm {...props} />
+        
         {/* rendering the assessments component */}
       <Assessments {...props} />
         </Card>

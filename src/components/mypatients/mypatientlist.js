@@ -8,6 +8,14 @@ import MyPatientCard from "./mypatientcard"
 const MyPatients = props => {
   const [patients, setPatients] = useState([])
   
+    
+    
+  
+  
+    
+  
+
+  
 
   const getPatients = () => {
     fetch(`http://localhost:8000/mypatients/owner`, {
