@@ -11,6 +11,35 @@ import {Button} from "reactstrap"
 // Methods: GET, DELETE
 
 const PatientListCard = props => {
+
+  const createNewMyPatient = e => {
+    // e.preventDefault();
+    
+  
+    const newMyPatient = {
+      patient_id: props.patient.id,
+      
+    };
+   
+      {
+      createMyPatient(newMyPatient)
+      };
+    }
+  ;
+  
+  const createMyPatient = newMyPatient => {
+    return fetch("http://localhost:8000/mypatients", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        Authorization: `Token ${localStorage.getItem("kalis_token")}`
+        
+      },
+      body: JSON.stringify(newMyPatient)
+    }).then(res => res.json());
+  };
+  
   
   return (
     <>
@@ -23,6 +52,7 @@ const PatientListCard = props => {
           <div>Sex: {props.patient.sex}</div>
           <div>Diagnosis: {props.patient.diagnosis}</div>
           <Button onClick={() => props.deletePatient(props.patient.id)}>Delete</Button>
+          <Button onClick = {() => createNewMyPatient()}>Add to My List</Button>
           </div>
         </div>
       </main>

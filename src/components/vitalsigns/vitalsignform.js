@@ -50,7 +50,7 @@ const VitalSignForm = props => {
     };
    
       {
-      createVitalSign(newVitalSign).then(() => toggle())
+      createVitalSign(newVitalSign).then(() => props.getVitalSigns()).then(() => toggle())
     }
   };
 

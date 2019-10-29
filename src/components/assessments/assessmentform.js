@@ -69,7 +69,7 @@ const AssessmentForm = props => {
     };
    
       {
-      createAssessment(newAssessment).then(() => toggle())
+      createAssessment(newAssessment).then(() => props.getAssessments() ).then(() => toggle())
     }
   };
 

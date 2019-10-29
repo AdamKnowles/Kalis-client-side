@@ -7,6 +7,7 @@ import PatientListCard from "./PatientListCard";
 
 const PatientList = props => {
   const [patients, setPatients] = useState([])
+
   
 
   const getPatients = () => {
@@ -48,7 +49,7 @@ const PatientList = props => {
     
     {patients.map(patient => (
 
-      <PatientListCard key={patient.id} patient={patient} deletePatient={deletePatient} {...props} />
+      <PatientListCard key={patient.id} patient={patient} patients={patients}  deletePatient={deletePatient} {...props} />
     ))}
       
     </>
