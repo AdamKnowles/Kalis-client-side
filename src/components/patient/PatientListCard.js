@@ -22,7 +22,11 @@ const PatientListCard = props => {
     };
    
       {
-      createMyPatient(newMyPatient)
+      createMyPatient(newMyPatient).then(() => {
+        props.history.push({
+          pathname: "/mypatients"
+        });
+      });
       };
     }
   ;

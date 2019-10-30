@@ -2,6 +2,8 @@ import React from "react"
 import { Link } from "react-router-dom";
 import { Table } from 'reactstrap';
 import VitalSignForm from "./vitalsignform";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import VitalSignsEditForm from "./vitalsignsedit";
 
 
 
@@ -47,6 +49,7 @@ const VitalSignsCard = props => {
         </tr>
       </tbody>
     </Table>
+    <VitalSignsEditForm  vitalsign={props.vitalsign} getVitalsigns={props.getVitalsigns}  {...props} />
     </>
   )
 }
