@@ -49,9 +49,10 @@ const Assessments = props => {
   return (
     
         
+    <div>
+      
       
         
-        <div>
         <AssessmentForm getAssessments={getAssessments} {...props} />
         {assessments.filter(assessment => assessment.patient_id === +props.match.params.patientProfileId).map(assessment => (
     

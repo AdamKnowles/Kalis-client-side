@@ -51,7 +51,7 @@ const VitalSigns = props => {
         
       
         
-        <div>
+        <div >
         
           <VitalSignForm getVitalSigns={getVitalSigns}  {...props} /> 
         {vitalsigns.filter(vitalsign => vitalsign.patient_id === +props.match.params.patientProfileId).map(vitalsign => (

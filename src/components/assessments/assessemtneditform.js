@@ -102,7 +102,7 @@ const AssessmentEditForm = props => {
         
 
 
-        <Button color="danger" onClick={toggle}>Edit Assessment</Button>
+        <Button color="success" onClick={toggle}>Edit Assessment</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
       {/* Add Patient Form */}
       <main style={{ textAlign: "center" }}>

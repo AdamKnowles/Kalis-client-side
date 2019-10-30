@@ -77,7 +77,7 @@ const VitalSignsEditForm = props => {
         
 
 
-<Button color="danger" onClick={toggle}>Edit Vital Signs</Button>
+<Button color="success" onClick={toggle}>Edit Vital Signs</Button>
 <Modal isOpen={modal} toggle={toggle} className={className}>
 {/* Add Patient Form */}
 <main style={{ textAlign: "center" }}>

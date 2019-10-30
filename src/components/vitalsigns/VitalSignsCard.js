@@ -14,6 +14,7 @@ import VitalSignsEditForm from "./vitalsignsedit";
 // Methods: GET, DELETE
 
 const VitalSignsCard = props => {
+  
     
   
   return (

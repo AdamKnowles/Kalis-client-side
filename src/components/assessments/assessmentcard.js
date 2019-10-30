@@ -16,7 +16,7 @@ const AssessmentCard = props => {
   
   return (
     <>
-    <h3 className = "text-center mb-4">{props.assessment.patient.first_name} {props.assessment.patient.last_name}</h3>
+    <h3 className = "text-center mb-4"></h3>
       <Table bordered >
       <tbody>
       <tr>
