@@ -17,6 +17,9 @@ const PatientList = props => {
         
         "Accept": "application/json",
         "Content-Type": "application/json",
+        Authorization: `Token ${localStorage.getItem(
+          "kalis_token"
+      )}`
         
       }
     })
@@ -29,7 +32,11 @@ const PatientList = props => {
         "method": "DELETE",
         "headers": {
           "Accept": "application/json",
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.getItem(
+            "kalis_token"
+        )}`
+          
           
             
         }

@@ -73,7 +73,7 @@ const AssessmentCard = props => {
         </tr>
       </tbody>
     </Table>
-    <AssessmentEditForm assessment={props.assessment} {...props} />
+    <AssessmentEditForm assessment={props.assessment} getAssessments={props.getAssessments}  {...props} />
     </>
   )
 }
