@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom";
 import { Table } from 'reactstrap';
+import AssessmentEditForm from "./assessemtneditform";
 
 
 
@@ -72,6 +73,7 @@ const AssessmentCard = props => {
         </tr>
       </tbody>
     </Table>
+    <AssessmentEditForm assessment={props.assessment} {...props} />
     </>
   )
 }

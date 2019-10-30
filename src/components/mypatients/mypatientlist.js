@@ -17,7 +17,7 @@ const MyPatients = props => {
 
   
 
-  const getPatients = () => {
+  const getMyPatients = () => {
     fetch(`http://localhost:8000/mypatients/owner`, {
       method: "GET",
       headers: {
@@ -33,7 +33,7 @@ const MyPatients = props => {
   }
 
   const deletePatient = (id) => {
-    fetch(`http://localhost:8000/patients/${id}`, {
+    fetch(`http://localhost:8000/mypatients/${id}`, {
         "method": "DELETE",
         "headers": {
           "Accept": "application/json",
@@ -42,10 +42,10 @@ const MyPatients = props => {
             
         }
     })
-        .then(getPatients)
+        .then(getMyPatients)
 }
 
-  useEffect(getPatients, [])
+  useEffect(getMyPatients, [])
 
   return (
     <>
