@@ -21,6 +21,9 @@ const VitalSigns = props => {
         
         "Accept": "application/json",
         "Content-Type": "application/json",
+        Authorization: `Token ${localStorage.getItem(
+          "kalis_token"
+      )}`
         
       }
     })

@@ -81,6 +81,9 @@ const AssessmentForm = props => {
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json",
+        Authorization: `Token ${localStorage.getItem(
+          "kalis_token"
+      )}`
         
       },
       body: JSON.stringify(newAssessment)

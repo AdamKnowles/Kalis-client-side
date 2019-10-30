@@ -21,6 +21,9 @@ const Assessments = props => {
         
         "Accept": "application/json",
         "Content-Type": "application/json",
+        Authorization: `Token ${localStorage.getItem(
+          "kalis_token"
+      )}`
         
       }
     })
@@ -52,7 +55,7 @@ const Assessments = props => {
         <AssessmentForm getAssessments={getAssessments} {...props} />
         {assessments.filter(assessment => assessment.patient_id === +props.match.params.patientProfileId).map(assessment => (
     
-          <AssessmentCard key={assessment.id} assessment={assessment} {...props} />
+          <AssessmentCard key={assessment.id} assessment={assessment} getAssessments={getAssessments} {...props} />
         ))}
           
           </div>

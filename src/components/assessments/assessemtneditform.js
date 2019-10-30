@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 
+
 const AssessmentEditForm = props => {
 
     const {
@@ -16,7 +17,7 @@ const AssessmentEditForm = props => {
       
       
     
-      const toggle = () => setModal(!modal)
+      const toggle = (e) => setModal(!modal)
       
 
       const toggleNested = () => {
@@ -42,7 +43,8 @@ const AssessmentEditForm = props => {
   const urine_amount = useRef();
       
       const handleAssessment = (e) => {
-    e.preventDefault()
+          e.preventDefault()
+    
     const editAssessment = {
         mental_status:  mental_status.current.value,
         pupil_response: pupil_response.current.value,
@@ -73,8 +75,18 @@ const AssessmentEditForm = props => {
 
         
       })
+      .then( () => props.getAssessments())
+      .then(() => toggle())
       
     }
+
+    // const edit = () => {
+        
+    //     handleAssessment()
+    //     .then(() => toggle())
+    // }
+
+    
     
 
     

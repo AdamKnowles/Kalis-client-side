@@ -59,7 +59,8 @@ const VitalSignsEditForm = props => {
 
         
       })
-      
+      .then( () => props.getVitalSigns())
+      .then(() => toggle())
     }
     
 
