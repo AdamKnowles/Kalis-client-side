@@ -21,7 +21,7 @@ const MyPatientCard = props => {
           <div>Birth Date {props.patient.patient.birth_date}</div>
           <div>Sex: {props.patient.patient.sex}</div>
           <div>Diagnosis: {props.patient.patient.diagnosis}</div>
-          <Button onClick={() => props.deletePatient(props.patient.id)}>Delete</Button>
+          <Button onClick={() => props.deletePatient(props.patient.id)}>Remove From My Patients</Button>
           </div>
         </div>
       </main>

@@ -79,7 +79,9 @@ const VitalSignForm = props => {
   // Create HTML representation with JSX
   return (
     <>
-      <Button color="danger" onClick={toggle}>Add Vital Signs</Button>
+    <div >
+      <Button  color="danger" onClick={toggle}>Add Vital Signs</Button>
+      </div>
       <Modal isOpen={modal} toggle={toggle} className={className}>
       {/* Add Patient Form */}
       <main style={{ textAlign: "center" }}>

@@ -14,18 +14,19 @@ import VitalSignsEditForm from "./vitalsignsedit";
 // Methods: GET, DELETE
 
 const VitalSignsCard = props => {
+  
     
   
   return (
     <>
     
     
-      <Table bordered >
+      <Table bordered className="mt-3" >
       
       <tbody>
       <tr>
           <th scope="row">Time</th>
-          <td>{props.vitalsign.time}</td>
+          <td><strong>{props.vitalsign.time}</strong></td>
         </tr>
       <tr>
           <th scope="row">Temp</th>

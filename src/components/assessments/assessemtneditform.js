@@ -13,11 +13,37 @@ const AssessmentEditForm = props => {
       const [modal, setModal] = useState(false);
       const [nestedModal, setNestedModal] = useState(false);
       const [closeAll, setCloseAll] = useState(false);
+      const [mental_status, setMentalStatus] = useState("");
+      const [pupil_response, setPupilResponse] = useState("");
+      const [heart_sounds, setHeartSounds] = useState("");
+      const [breath_sounds, setBreathSounds] = useState("");
+      const [edema, setEdema] = useState("");
+      const [oxygen_rate, setOxygenRate] = useState("");
+      const [bowel_sounds, setBowelSounds] = useState("");
+      const [npo, setNpo] = useState("");
+      const [last_bowel_movement, setLastBowelMovement] = useState("");
+      const [urine_color, setUrineColor] = useState("");
+      const [urine_odor, setUrineOdor] = useState("");
+      const [urine_amount, setUrineAmount] = useState("");
       
       
       
     
-      const toggle = (e) => setModal(!modal)
+      const toggle = () => {
+      setModal(!modal)
+      setMentalStatus(props.assessment.mental_status)
+      setPupilResponse(props.assessment.pupil_response)
+      setHeartSounds(props.assessment.heart_sounds)
+      setBreathSounds(props.assessment.breath_sounds)
+      setEdema(props.assessment.edema)
+      setOxygenRate(props.assessment.oxygen_rate)
+      setBowelSounds(props.assessment.bowel_sounds)
+      setNpo(props.assessment.npo)
+      setLastBowelMovement(props.assessment.last_bowel_movement)
+      setUrineColor(props.assessment.urine_color)
+      setUrineOdor(props.assessment.urine_odor)
+      setUrineAmount(props.assessment.urine_amount)
+      }
       
 
       const toggleNested = () => {
@@ -29,35 +55,24 @@ const AssessmentEditForm = props => {
         setCloseAll(true);
       }
 
-  const mental_status = useRef();
-  const pupil_response = useRef();
-  const heart_sounds = useRef();
-  const breath_sounds = useRef();
-  const edema = useRef();
-  const oxygen_rate = useRef();
-  const bowel_sounds = useRef();
-  const npo = useRef();
-  const last_bowel_movement = useRef();
-  const urine_color = useRef();
-  const urine_odor = useRef();
-  const urine_amount = useRef();
+  
       
       const handleAssessment = (e) => {
           e.preventDefault()
     
     const editAssessment = {
-        mental_status:  mental_status.current.value,
-        pupil_response: pupil_response.current.value,
-        heart_sounds: heart_sounds.current.value,
-        breath_sounds: breath_sounds.current.value,
-        edema: edema.current.value,
-        oxygen_rate: oxygen_rate.current.value,
-        bowel_sounds: bowel_sounds.current.value,
-        npo: npo.current.value,
-        last_bowel_movement: last_bowel_movement.current.value,
-        urine_color: urine_color.current.value,
-        urine_odor: urine_odor.current.value,
-        urine_amount: urine_amount.current.value,
+        mental_status:  mental_status,
+        pupil_response: pupil_response,
+        heart_sounds: heart_sounds,
+        breath_sounds: breath_sounds,
+        edema: edema,
+        oxygen_rate: oxygen_rate,
+        bowel_sounds: bowel_sounds,
+        npo: npo,
+        last_bowel_movement: last_bowel_movement,
+        urine_color: urine_color,
+        urine_odor: urine_odor,
+        urine_amount: urine_amount,
         patient_id: props.assessment.patient_id
     }
     
@@ -86,23 +101,12 @@ const AssessmentEditForm = props => {
     //     .then(() => toggle())
     // }
 
-    
-    
-
-    
-  
-
-
-  
-
-    
-
     return (
         <>
         
 
 
-        <Button color="danger" onClick={toggle}>Edit Assessment</Button>
+        <Button color="success" onClick={toggle}>Edit Assessment</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
       {/* Add Patient Form */}
       <main style={{ textAlign: "center" }}>
@@ -113,11 +117,12 @@ const AssessmentEditForm = props => {
           <fieldset>
             <label className="card-text" htmlFor="mental_status"> Mental Status </label>
             <input
-              ref={mental_status}
               type="text"
               name="mental_status"
               className="form-control"
               placeholder="Mental Status"
+              value={mental_status}
+              onChange = {e => setMentalStatus(e.target.value)}
               required
               autoFocus
             />
@@ -125,11 +130,12 @@ const AssessmentEditForm = props => {
           <fieldset>
             <label className="card-text" htmlFor="pupil_response"> Pupil Response </label>
             <input
-              ref={pupil_response}
               type="text"
               name="pupil_response"
               className="form-control"
               placeholder="Pupil Response"
+              value={pupil_response}
+              onChange = {e => setPupilResponse(e.target.value)}
               required
               autoFocus
             />
@@ -137,11 +143,12 @@ const AssessmentEditForm = props => {
           <fieldset>
             <label className="card-text" htmlFor="heart_sounds"> Heart Sounds </label>
             <input
-              ref={heart_sounds}
               type="text"
               name="heart_sounds"
               className="form-control"
               placeholder="Heart Sounds"
+              value={heart_sounds}
+              onChange = {e => setHeartSounds(e.target.value)}
               required
               autoFocus
             />
@@ -149,11 +156,12 @@ const AssessmentEditForm = props => {
           <fieldset>
             <label className="card-text" htmlFor="breath_sounds"> Breath Sounds </label>
             <input
-              ref={breath_sounds}
               type="text"
               name="breath_sounds"
               className="form-control"
               placeholder="Breath Sounds"
+              value={breath_sounds}
+              onChange = {e => setBreathSounds(e.target.value)}
               required
               autoFocus
             />
@@ -161,11 +169,12 @@ const AssessmentEditForm = props => {
           <fieldset>
             <label className="card-text" htmlFor="edema"> Edema </label>
             <input
-              ref={edema}
               type="text"
               name="edema"
               className="form-control"
               placeholder="Edema"
+              value={edema}
+              onChange = {e => setEdema(e.target.value)}
               required
               autoFocus
             />
@@ -173,11 +182,12 @@ const AssessmentEditForm = props => {
           <fieldset>
             <label className="card-text" htmlFor="oxygen_rate"> Oxygen Rate </label>
             <input
-              ref={oxygen_rate}
               type="text"
               name="oxygen_rate"
               className="form-control"
               placeholder="Oxygen Rate"
+              value={oxygen_rate}
+              onChange = {e => setOxygenRate(e.target.value)}
               required
               autoFocus
             />
@@ -185,11 +195,12 @@ const AssessmentEditForm = props => {
           <fieldset>
             <label className="card-text" htmlFor="bowel_sounds"> Bowel Sounds </label>
             <input
-              ref={bowel_sounds}
               type="text"
               name="bowel_sounds"
               className="form-control"
               placeholder="bowel_sounds"
+              value={bowel_sounds}
+              onChange = {e => setBowelSounds(e.target.value)}
               required
             />
           </fieldset>
@@ -197,53 +208,57 @@ const AssessmentEditForm = props => {
           <fieldset>
             <label className="card-text" htmlFor="npo"> NPO </label>
             <input
-              ref={npo}
               type="text"
               name="npo"
               className="form-control"
               placeholder="NPO Status"
+              value={npo}
+              onChange = {e => setNpo(e.target.value)}
               required
             />
           </fieldset>
           <fieldset>
             <label className="card-text" htmlFor="urine_color"> Urine Color </label>
             <input
-              ref={urine_color}
               type="text"
               name="urine_color"
               className="form-control"
               placeholder="Urine Color"
+              value={urine_color}
+              onChange = {e => setUrineColor(e.target.value)}
               required
             />
           </fieldset>
           <fieldset>
             <label className="card-text" htmlFor="urine_odor"> Urine Odor </label>
             <input
-              ref={urine_odor}
               type="text"
               name="urine_odor"
               className="form-control"
               placeholder="Urine Odor"
+              value={urine_odor}
+              onChange = {e => setUrineOdor(e.target.value)}
               required
             />
           </fieldset>
           <fieldset>
             <label className="card-text" htmlFor="urine_amount"> Urine Amount </label>
             <input
-              ref={urine_amount}
               type="text"
               name="urine_amount"
               className="form-control"
               placeholder="Urine Amount"
+              value={urine_amount}
+              onChange = {e => setUrineAmount(e.target.value)}
               required
             />
           <fieldset>
           <label className="card-text" htmlFor="last_bowel_movement"> Last BM </label>
           <input
           type="date"
-          ref={last_bowel_movement}
           name="last_bowel_movement"
           defaultValue={new Date()}
+          value={last_bowel_movement}
           
         >
             

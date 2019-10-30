@@ -12,11 +12,24 @@ const VitalSignsEditForm = props => {
       const [modal, setModal] = useState(false);
       const [nestedModal, setNestedModal] = useState(false);
       const [closeAll, setCloseAll] = useState(false);
+      const [temperature, setTemperature] = useState("");
+      const [blood_pressure, setBloodPressure] = useState("");
+      const [oxygen_saturation, setOxygenSaturation] = useState("");
+      const [heart_rate, setHeartRate] = useState("");
+      const [respiration_rate, setRespirationRate] = useState("");
       
       
       
     
-      const toggle = () => setModal(!modal)
+      const toggle = () => {
+        setModal(!modal)
+        setTemperature(props.vitalsign.temperature)
+        setBloodPressure(props.vitalsign.blood_pressure)
+        setOxygenSaturation(props.vitalsign.oxygen_saturation)
+        setHeartRate(props.vitalsign.heart_rate)
+        setRespirationRate(props.vitalsign.respiration_rate)
+        
+      }
       
 
       const toggleNested = () => {
@@ -28,20 +41,16 @@ const VitalSignsEditForm = props => {
         setCloseAll(true);
       }
 
-    const temperature = useRef();
-    const heart_rate = useRef();
-    const blood_pressure = useRef();
-    const oxygen_saturation = useRef();
-    const respiration_rate = useRef();
+    
 
   const handleEditVitalSigns = (e) => {
     e.preventDefault()
     const editVitalSign = {
-        temperature: temperature.current.value,
-        heart_rate: heart_rate.current.value,
-        blood_pressure: blood_pressure.current.value,
-        oxygen_saturation: oxygen_saturation.current.value,
-        respiration_rate: respiration_rate.current.value,
+        temperature: temperature,
+        heart_rate: heart_rate,
+        blood_pressure: blood_pressure,
+        oxygen_saturation: oxygen_saturation,
+        respiration_rate: respiration_rate,
         patient_id: props.vitalsign.patient_id
     }
     
@@ -62,22 +71,13 @@ const VitalSignsEditForm = props => {
       .then( () => props.getVitalSigns())
       .then(() => toggle())
     }
-    
-
-    
-  
-
-
-  
-
-    
 
     return (
         <>
         
 
 
-<Button color="danger" onClick={toggle}>Edit Vital Signs</Button>
+<Button color="success" onClick={toggle}>Edit Vital Signs</Button>
 <Modal isOpen={modal} toggle={toggle} className={className}>
 {/* Add Patient Form */}
 <main style={{ textAlign: "center" }}>
@@ -88,12 +88,13 @@ const VitalSignsEditForm = props => {
     <fieldset>
       <label className="card-text" htmlFor="temperature"> Temperature </label>
       <input
-        ref={temperature}
+        // ref={temperature}
         type="text"
         name="name"
         className="form-control"
         placeholder="Temperature"
-        // value={vitalsigns.temperature}
+        onChange = {e => setTemperature(e.target.value)}
+        value={temperature}
         required
         autoFocus
       />
@@ -101,12 +102,13 @@ const VitalSignsEditForm = props => {
     <fieldset>
       <label className="card-text" htmlFor="blood_pressure"> Blood Pressure </label>
       <input
-        ref={blood_pressure}
+        // ref={blood_pressure}
         type="text"
         name="blood_pressure"
         className="form-control"
         placeholder="Blood Pressure"
-        // value={vitalsigns.blood_pressure}
+        onChange = {e => setBloodPressure(e.target.value)}
+        value={blood_pressure}
         required
       />
     </fieldset>
@@ -114,36 +116,39 @@ const VitalSignsEditForm = props => {
     <fieldset>
       <label className="card-text" htmlFor="heart_rate"> Heart Rate </label>
       <input
-        ref={heart_rate}
+        // ref={heart_rate}
         type="text"
         name="heart_rate"
         className="form-control"
         placeholder="Heart Rate"
-        // value={vitalsigns.heart_rate}
+        onChange = {e => setHeartRate(e.target.value)}
+        value={heart_rate}
         required
       />
     </fieldset>
     <fieldset>
       <label className="card-text" htmlFor="respiration_rate"> Respiration Rate </label>
       <input
-        ref={respiration_rate}
+        // ref={respiration_rate}
         type="text"
         name="respiration_rate"
         className="form-control"
         placeholder="Respiration Rate"
-        // value={vitalsigns.respiration_rate}
+        onChange = {e => setRespirationRate(e.target.value)}
+        value={respiration_rate}
         required
       />
     </fieldset>
     <fieldset>
       <label className="card-text" htmlFor="oxygen_saturation"> O2 Sats </label>
       <input
-        ref={oxygen_saturation}
+        // ref={oxygen_saturation}
         type="text"
         name="oxygen_saturation"
         className="form-control"
         placeholder="O2 Sats"
-        // value={vitalsigns.oxygen_saturation}
+        onChange = {e => setOxygenSaturation(e.target.value)}
+        value={oxygen_saturation}
         required
       />
     </fieldset>
