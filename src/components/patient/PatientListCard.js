@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom";
 import PatientProfile from "./patientProfile"
-import {Button} from "reactstrap"
+import {Button, Card, CardBody} from "reactstrap"
 
 
 
@@ -47,19 +47,29 @@ const PatientListCard = props => {
   
   return (
     <>
+    <div className="d-flex justify-content-center">
       <main className="patients">
-        <div className="card">
-          <div className="card-body">
+        
+          <CardBody className="card-body border-bottom">
+            <div className="d-flex justify-content-center">
           <Link className="card-text" to={`/patientProfile/${props.patient.id}`}><h3>
-          {props.patient.last_name}, {props.patient.first_name} </h3></Link>   
-          <div>Birth Date {props.patient.birth_date}</div>
-          <div>Sex: {props.patient.sex}</div>
-          <div>Diagnosis: {props.patient.diagnosis}</div>
-          <Button onClick={() => props.deletePatient(props.patient.id)}>Delete</Button>
-          <Button onClick = {() => createNewMyPatient()}>Add to My List</Button>
+          {props.patient.last_name}, {props.patient.first_name} </h3></Link>
           </div>
-        </div>
+          <div className="d-flex justify-content-center mb-2">   
+          <div className="mr-3"><strong>Birth Date: </strong>{props.patient.birth_date}</div>
+          <div className="mr-3"><strong>Sex: </strong>{props.patient.sex}</div>
+          </div>
+          <div className="d-flex justify-content-center mb-3">
+          <div ><strong>Diagnosis: </strong>{props.patient.diagnosis}</div>
+          </div>
+          <div className="d-flex justify-content-center">
+          <Button className="mr-2" color="success" onClick={() => props.deletePatient(props.patient.id)}>Delete</Button>
+          <Button color="info" onClick = {() => createNewMyPatient()}>Add to My List</Button>
+          </div>
+          </CardBody>
+        
       </main>
+      </div>
     </>
   )
 }
