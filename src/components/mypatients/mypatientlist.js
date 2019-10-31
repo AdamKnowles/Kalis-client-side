@@ -43,15 +43,17 @@ const MyPatients = props => {
   useEffect(getMyPatients, [])
 
   return (
-    <>
+    <><div className="">
+      <div className="d-flex justify-content-center mb-5">
     <h2><strong> My Patients</strong></h2>
+    </div>
     
     
     {patients.map(patient => (
 
       <MyPatientCard key={patient.id} patient={patient} deletePatient={deletePatient} {...props} />
     ))}
-      
+      </div>
     </>
   )
 }

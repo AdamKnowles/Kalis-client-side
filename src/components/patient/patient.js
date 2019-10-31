@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import PatientListCard from "./PatientListCard";
+import {Button, Card, CardBody} from "reactstrap"
 
 // Author: Adam Knowles
 // Purpose: Show all products and related information that a user has shown for sale
@@ -48,11 +49,15 @@ const PatientList = props => {
 
   return (
     <>
+    <div className="d-flex justify-content-center">
     <h2><strong>Patients</strong></h2>
-    <button  
-    type="button" onClick={() => props.history.push("/patientform")}>
+    </div>
+    <div className="d-flex justify-content-center mb-4">
+    <Button  
+    type="button" color="primary" onClick={() => props.history.push("/patientform")}>
     Add New Patient
-    </button>
+    </Button>
+    </div>
     
     {patients.map(patient => (
 

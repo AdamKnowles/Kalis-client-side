@@ -73,6 +73,9 @@ const PatientProfile = props => {
         <Row>
           <Col sm="12">
           <Card body>
+            <div className="d-flex justify-content-center">
+            <h3>{patient.first_name} {patient.last_name}'s Profile</h3>
+            </div>
           
       {/* vital signs component rendered */}
       <VitalSigns  {...props} />
@@ -85,6 +88,9 @@ const PatientProfile = props => {
     <Row>
       <Col sm="12">
       <Card body>
+      <div className="d-flex justify-content-center">
+            <h3>{patient.first_name} {patient.last_name}'s Profile</h3>
+            </div>
         
         {/* rendering the assessments component */}
       <Assessments {...props} />
