@@ -17,7 +17,7 @@ const MyPatientCard = props => {
         <div className="card">
           <div className="card-body">
           <Link className="card-text" to={`/patientProfile/${props.patient.patient_id}`}><h3>
-          {props.patient.patient.first_name} {props.patient.patient.last_name}</h3></Link>   
+          {props.patient.patient.last_name}, {props.patient.patient.first_name} </h3></Link>   
           <div>Birth Date {props.patient.patient.birth_date}</div>
           <div>Sex: {props.patient.patient.sex}</div>
           <div>Diagnosis: {props.patient.patient.diagnosis}</div>
