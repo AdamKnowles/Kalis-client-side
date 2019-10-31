@@ -32,11 +32,11 @@ const VitalSignsCard = props => {
         </tr>
       <tr>
           <th scope="row">Temp</th>
-          <td>{props.vitalsign.temperature}</td>
+          <td>{props.vitalsign.temperature} °F</td>
         </tr>
         <tr>
           <th scope="row">HR</th>
-          <td>{props.vitalsign.heart_rate}</td>
+          <td>{props.vitalsign.heart_rate} bpm</td>
         </tr>
         <tr>
           <th scope="row">BP</th>
@@ -44,11 +44,11 @@ const VitalSignsCard = props => {
         </tr>
         <tr>
           <th scope="row">RR</th>
-          <td>{props.vitalsign.respiration_rate}</td>
+          <td>{props.vitalsign.respiration_rate} bpm</td>
         </tr>
         <tr>
           <th scope="row">02 Sat</th>
-          <td>{props.vitalsign.oxygen_saturation}</td>
+          <td>{props.vitalsign.oxygen_saturation}%</td>
         </tr>
       </tbody>
     </Table>

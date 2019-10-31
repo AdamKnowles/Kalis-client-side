@@ -43,6 +43,10 @@ const PatientListCard = props => {
       body: JSON.stringify(newMyPatient)
     }).then(res => res.json());
   };
+  const Capitalize =(str) =>{
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+      
   
   
   return (
@@ -53,7 +57,7 @@ const PatientListCard = props => {
           <CardBody className="card-body border-bottom">
             <div className="d-flex justify-content-center">
           <Link className="card-text" to={`/patientProfile/${props.patient.id}`}><h3>
-          {props.patient.last_name}, {props.patient.first_name} </h3></Link>
+          {Capitalize(props.patient.last_name)}, {Capitalize(props.patient.first_name)} </h3></Link>
           </div>
           <div className="d-flex justify-content-center mb-2">   
           <div className="mr-3"><strong>Birth Date: </strong>{props.patient.birth_date}</div>

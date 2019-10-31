@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import {Button, Card, CardBody} from "reactstrap"
 
 
 
@@ -17,8 +18,8 @@ const PatientForm = props => {
     e.preventDefault();
 
     const newPatient = {
-      first_name: first_name.current.value,
-      last_name: last_name.current.value,
+      first_name: first_name.current.value.toLowerCase(),
+      last_name: last_name.current.value.toLowerCase(),
       birth_date: birth_date.current.value,
       sex: sex.current.value,
       diagnosis: diagnosis.current.value,
@@ -115,18 +116,22 @@ const PatientForm = props => {
           </fieldset>
           <fieldset>
           <label className="card-text" htmlFor="birth_date"> Birth Date </label>
+          <div className="mb-3">
           <input
           type="date"
           ref={birth_date}
           name="birth_date"
           defaultValue={new Date()}
           
-        >
+          >
             
         </input>
+          </div>
         </fieldset>
           <fieldset>
-            <button type="submit">submit</button>
+            <div className="d-flex justify-content-center">
+            <Button color="danger" type="submit">submit</Button>
+            </div>
           </fieldset>
           </div>
           </div>
