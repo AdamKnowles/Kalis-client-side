@@ -45,6 +45,8 @@ const VitalSigns = props => {
 }
 
   useEffect(getVitalSigns, [])
+   
+    
 
   return (
     

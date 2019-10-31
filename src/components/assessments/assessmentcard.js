@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom";
 import { Table } from 'reactstrap';
 import AssessmentEditForm from "./assessemtneditform";
+import moment from "moment"
 
 
 
@@ -16,12 +17,13 @@ const AssessmentCard = props => {
   
   return (
     <>
-    <h3 className = "text-center mb-4"></h3>
-      <Table bordered >
+    
+    <div className="text-center"><strong>{moment(props.assessment.time).format('L')}</strong></div>
+      <Table bordered className ="mt-1" >
       <tbody>
       <tr>
           <th scope="row">Time</th>
-          <td>{props.assessment.time}</td>
+          <td><strong>{moment(props.assessment.time).format('HHmm')}</strong></td>
         </tr>
       <tr>
           <th scope="row">Mental Status</th>

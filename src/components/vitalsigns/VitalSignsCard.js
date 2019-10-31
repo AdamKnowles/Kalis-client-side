@@ -4,6 +4,7 @@ import { Table } from 'reactstrap';
 import VitalSignForm from "./vitalsignform";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import VitalSignsEditForm from "./vitalsignsedit";
+import moment from "moment"
 
 
 
@@ -15,18 +16,19 @@ import VitalSignsEditForm from "./vitalsignsedit";
 
 const VitalSignsCard = props => {
   
+  ;
     
   
   return (
     <>
     
-    
-      <Table bordered className="mt-3" >
+    <div className="text-center"><strong>{moment(props.vitalsign.time).format('L')}</strong></div>
+      <Table bordered className="mt-1" >
       
       <tbody>
       <tr>
           <th scope="row">Time</th>
-          <td><strong>{props.vitalsign.time}</strong></td>
+          <td><strong>{moment(props.vitalsign.time).format('HHmm')}</strong></td>
         </tr>
       <tr>
           <th scope="row">Temp</th>
