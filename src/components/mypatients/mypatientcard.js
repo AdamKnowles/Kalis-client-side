@@ -10,6 +10,9 @@ import {Button, Card, CardBody} from "reactstrap"
 // Methods: GET, DELETE
 
 const MyPatientCard = props => {
+  const Capitalize =(str) =>{
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
   
   return (
     <>
@@ -19,7 +22,7 @@ const MyPatientCard = props => {
           <CardBody className="card-body border-bottom">
             <div className="d-flex justify-content-center">
           <Link className="card-text" to={`/patientProfile/${props.patient.patient_id}`}><h3>
-          {props.patient.patient.last_name}, {props.patient.patient.first_name} </h3></Link>
+          {Capitalize(props.patient.patient.last_name)}, {Capitalize(props.patient.patient.first_name)} </h3></Link>
           </div>
           <div className="d-flex justify-content-center mb-2">   
           <div className="mr-3"><strong>Birth Date: </strong>{props.patient.patient.birth_date}</div>
