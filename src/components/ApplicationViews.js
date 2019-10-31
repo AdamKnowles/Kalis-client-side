@@ -47,7 +47,7 @@ const ApplicationViews = () => {
         }}
       />
       <Route
-        path="/mypatients"
+        exact path="/mypatients"
         render={props => {
           return <MyPatients {...props} />;
         }}
