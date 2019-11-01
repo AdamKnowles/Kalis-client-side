@@ -106,7 +106,7 @@ const AssessmentEditForm = props => {
         
 
 
-        <Button color="success" onClick={toggle}>Edit Assessment</Button>
+        <Button color="info" onClick={toggle}>Edit Assessment</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
       {/* Add Patient Form */}
       <main style={{ textAlign: "center" }}>
@@ -267,7 +267,9 @@ const AssessmentEditForm = props => {
           </fieldset>
          
           <fieldset>
-            <button type="submit">submit</button>
+          <div className="d-flex justify-content-center mt-2">
+            <Button  color="info" type="submit">submit</Button>
+            </div>
           </fieldset>
           </div>
           </div>

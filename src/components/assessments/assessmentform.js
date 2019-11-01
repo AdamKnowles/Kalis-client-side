@@ -111,7 +111,7 @@ const AssessmentForm = props => {
   // Create HTML representation with JSX
   return (
     <>
-      <Button color="danger" onClick={toggle}>Add Assessment</Button>
+      <Button color="info" onClick={toggle}>Add Assessment</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
       {/* Add Patient Form */}
       <main style={{ textAlign: "center" }}>
@@ -261,7 +261,9 @@ const AssessmentForm = props => {
           </fieldset>
          
           <fieldset>
-            <button type="submit">submit</button>
+          <div className="d-flex justify-content-center mt-2">
+            <Button  color="info" type="submit">submit</Button>
+            </div>
           </fieldset>
           </div>
           </div>

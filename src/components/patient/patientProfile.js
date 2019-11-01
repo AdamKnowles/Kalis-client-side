@@ -39,11 +39,15 @@ const PatientProfile = props => {
 
   
   
+  
   useEffect(() => {
     getPatient(props.patientProfileId);
   }, []);
-
   
+  
+  const Capitalize =(str) =>{
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
   
 
   //If the category ID matches the categoryProfile ID, show all products and information associated with that category
@@ -74,7 +78,8 @@ const PatientProfile = props => {
           <Col sm="12">
           <Card body>
             <div className="d-flex justify-content-center">
-            <h3>{patient.first_name} {patient.last_name}'s Profile</h3>
+            <h3>{(patient.first_name)} {patient.last_name}'s Profile</h3>
+            
             </div>
           
       {/* vital signs component rendered */}

@@ -130,7 +130,7 @@ const PatientForm = props => {
         </fieldset>
           <fieldset>
             <div className="d-flex justify-content-center">
-            <Button color="danger" type="submit">submit</Button>
+            <Button color="info" type="submit">submit</Button>
             </div>
           </fieldset>
           </div>
