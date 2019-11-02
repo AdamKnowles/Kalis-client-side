@@ -1,5 +1,5 @@
 import { Route, Redirect } from "react-router-dom"
-import React from "react"
+import React, { useRef, useState, useEffect } from "react";
 import { withRouter } from "react-router-dom"
 import Register from "./auth/Register"
 import Login from "./auth/Login"
@@ -13,6 +13,41 @@ import MyPatients from "./mypatients/mypatientlist"
 
 const ApplicationViews = () => {
     const { isAuthenticated } = useSimpleAuth();
+    const [mentalstatus, setMentalStatus] = useState([]);
+
+
+    const getMentalStatus = () => {
+      fetch(`http://localhost:8000/mentalstatus`, {
+        method: "GET",
+        headers: {
+          
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.getItem(
+            "kalis_token"
+        )}`
+          
+        }
+      })
+        .then(response => response.json())
+        .then(setMentalStatus)
+    }
+
+        useEffect(() => {
+          getMentalStatus();
+          
+        }, []);
+
+
+
+
+
+
+
+
+
+
+
     return (
         <React.Fragment>
         
@@ -34,7 +69,7 @@ const ApplicationViews = () => {
         path="/patientProfile/:patientProfileId(\d+)"
         render={props => {
           const patientId = +props.match.params.patientProfileId;
-          return <PatientProfile {...props} patientProfileId={patientId} />;
+          return <PatientProfile  patientProfileId={patientId} mentalstatus={mentalstatus} {...props} />;
         }}
       />
           

@@ -27,7 +27,7 @@ const AssessmentCard = props => {
         </tr>
       <tr>
           <th scope="row">Mental Status</th>
-          <td>{props.assessment.mental_status}</td>
+          <td>{props.assessment.mental_status.mental_status}</td>
         </tr>
         <tr>
           <th scope="row">Pupil Response</th>

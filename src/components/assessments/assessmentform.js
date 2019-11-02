@@ -120,17 +120,16 @@ const AssessmentForm = props => {
             <div className="card-body">
           <h1 className="card-title h3 mb-3 font-weight-normal">Enter in a new Assessment</h1>
           <fieldset>
-            <label className="card-text" htmlFor="mental_status"> Mental Status </label>
-            <input
-              ref={mental_status}
-              type="text"
-              name="mental_status"
-              className="form-control"
-              placeholder="Mental Status"
-              required
-              autoFocus
-            />
-          </fieldset>
+      <label>Mental Status</label>
+      <select ref={mental_status} className="form-control" name="mental_status" required >
+      <option value="what" disabled selected>Select</option>
+      {
+       props.mentalstatus.map(assessment => {
+           return <option value={assessment.id} >{assessment.mental_status}</option>
+          })
+       }
+       </select>
+      </fieldset>
           <fieldset>
             <label className="card-text" htmlFor="pupil_response"> Pupil Response </label>
             <input
