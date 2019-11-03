@@ -27,35 +27,35 @@ const AssessmentCard = props => {
         </tr>
       <tr>
           <th scope="row">Mental Status</th>
-          <td>{props.assessment.mental_status}</td>
+          <td>{props.assessment.mental_status.mental_status}</td>
         </tr>
         <tr>
           <th scope="row">Pupil Response</th>
-          <td>{props.assessment.pupil_response}mm</td>
+          <td>{props.assessment.pupil_response.pupil_response}mm</td>
         </tr>
         <tr>
           <th scope="row">Heart Sounds</th>
-          <td>{props.assessment.heart_sounds}</td>
+          <td>{props.assessment.heart_sounds.heart_sounds}</td>
         </tr>
         <tr>
           <th scope="row">Breath Sounds</th>
-          <td>{props.assessment.breath_sounds}</td>
+          <td>{props.assessment.breath_sounds.breath_sounds}</td>
         </tr>
         <tr>
           <th scope="row">Edema</th>
-          <td>{props.assessment.edema}+</td>
+          <td>{props.assessment.edema.edema}+</td>
         </tr>
         <tr>
           <th scope="row">Oxygen Rate</th>
-          <td>{props.assessment.oxygen_rate} L</td>
+          <td>{props.assessment.oxygen_rate.oxygen_rate} L</td>
         </tr>
         <tr>
           <th scope="row">Bowel Sounds</th>
-          <td>{props.assessment.bowel_sounds}</td>
+          <td>{props.assessment.bowel_sounds.bowel_sounds}</td>
         </tr>
         <tr>
           <th scope="row">NPO</th>
-          <td>{props.assessment.npo}</td>
+          <td>{props.assessment.npo.npo}</td>
         </tr>
         <tr>
           <th scope="row">Last BM</th>
@@ -63,11 +63,11 @@ const AssessmentCard = props => {
         </tr>
         <tr>
           <th scope="row">Urine Color</th>
-          <td>{props.assessment.urine_color}</td>
+          <td>{props.assessment.urine_color.urine_color}</td>
         </tr>
         <tr>
           <th scope="row">Urine Odor</th>
-          <td>{props.assessment.urine_odor}</td>
+          <td>{props.assessment.urine_odor.urine_odor}</td>
         </tr>
         <tr>
           <th scope="row">Urine Amount</th>

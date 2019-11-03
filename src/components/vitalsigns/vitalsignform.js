@@ -80,7 +80,7 @@ const VitalSignForm = props => {
   return (
     <>
     <div >
-      <Button  color="danger" onClick={toggle}>Add Vital Signs</Button>
+      <Button  color="info" onClick={toggle}>Add Vital Signs</Button>
       </div>
       <Modal isOpen={modal} toggle={toggle} className={className}>
       {/* Add Patient Form */}
@@ -148,7 +148,9 @@ const VitalSignForm = props => {
           </fieldset>
          
           <fieldset>
-            <button type="submit">submit</button>
+            <div className="d-flex justify-content-center mt-2">
+            <Button  color="info" type="submit">submit</Button>
+            </div>
           </fieldset>
           </div>
           </div>
