@@ -9,51 +9,39 @@ const AssessmentEditForm = props => {
         buttonLabel,
         className
       } = props;
+
+
     
-      const [modal, setModal] = useState(false);
-      const [nestedModal, setNestedModal] = useState(false);
-      const [closeAll, setCloseAll] = useState(false);
-      const [mental_status, setMentalStatus] = useState("");
-      const [pupil_response, setPupilResponse] = useState("");
-      const [heart_sounds, setHeartSounds] = useState("");
-      const [breath_sounds, setBreathSounds] = useState("");
-      const [edema, setEdema] = useState("");
-      const [oxygen_rate, setOxygenRate] = useState("");
-      const [bowel_sounds, setBowelSounds] = useState("");
-      const [npo, setNpo] = useState("");
-      const [last_bowel_movement, setLastBowelMovement] = useState("");
-      const [urine_color, setUrineColor] = useState("");
-      const [urine_odor, setUrineOdor] = useState("");
-      const [urine_amount, setUrineAmount] = useState("");
+    const [modal, setModal] = useState(false);
+    const [last_bowel_movement, setLastBowelMovement] = useState("");
+            const [urine_amount, setUrineAmount] = useState("");
+  
+  const mental_status = useRef();
+  const pupil_response = useRef();
+  const heart_sounds = useRef();
+  const breath_sounds = useRef();
+  const edema = useRef();
+  const oxygen_rate = useRef();
+  const bowel_sounds = useRef();
+  const npo = useRef();
+  const urine_color = useRef();
+  const urine_odor = useRef();
+  
       
       
       
     
       const toggle = () => {
       setModal(!modal)
-      setMentalStatus(props.assessment.mental_status)
-      setPupilResponse(props.assessment.pupil_response)
-      setHeartSounds(props.assessment.heart_sounds)
-      setBreathSounds(props.assessment.breath_sounds)
-      setEdema(props.assessment.edema)
-      setOxygenRate(props.assessment.oxygen_rate)
-      setBowelSounds(props.assessment.bowel_sounds)
-      setNpo(props.assessment.npo)
       setLastBowelMovement(props.assessment.last_bowel_movement)
-      setUrineColor(props.assessment.urine_color)
-      setUrineOdor(props.assessment.urine_odor)
-      setUrineAmount(props.assessment.urine_amount)
+        setUrineAmount(props.assessment.urine_amount)
+        {console.log(props.assessment.id)}
+
+      
       }
       
 
-      const toggleNested = () => {
-        setNestedModal(!nestedModal);
-        setCloseAll(false);
-      }
-      const toggleAll = () => {
-        setNestedModal(!nestedModal);
-        setCloseAll(true);
-      }
+      
 
   
       
@@ -61,17 +49,17 @@ const AssessmentEditForm = props => {
           e.preventDefault()
     
     const editAssessment = {
-        mental_status:  mental_status,
-        pupil_response: pupil_response,
-        heart_sounds: heart_sounds,
-        breath_sounds: breath_sounds,
-        edema: edema,
-        oxygen_rate: oxygen_rate,
-        bowel_sounds: bowel_sounds,
-        npo: npo,
+        mental_status:  mental_status.current.value,
+        pupil_response: pupil_response.current.value,
+        heart_sounds: heart_sounds.current.value,
+        breath_sounds: breath_sounds.current.value,
+        edema: edema.current.value,
+        oxygen_rate: oxygen_rate.current.value,
+        bowel_sounds: bowel_sounds.current.value,
+        npo: npo.current.value,
         last_bowel_movement: last_bowel_movement,
-        urine_color: urine_color,
-        urine_odor: urine_odor,
+        urine_color: urine_color.current.value,
+        urine_odor: urine_odor.current.value,
         urine_amount: urine_amount,
         patient_id: props.assessment.patient_id
     }
@@ -95,11 +83,7 @@ const AssessmentEditForm = props => {
       
     }
 
-    // const edit = () => {
-        
-    //     handleAssessment()
-    //     .then(() => toggle())
-    // }
+   
 
     return (
         <>
@@ -113,152 +97,189 @@ const AssessmentEditForm = props => {
         <form className="form--login" onSubmit={handleAssessment}>
           <div className="card">
             <div className="card-body">
-          <h1 className="card-title h3 mb-3 font-weight-normal">Enter in a new Assessment</h1>
+          <h1 className="card-title h3 mb-3 font-weight-normal">Edit an Assessment</h1>
           <fieldset>
-            <label className="card-text" htmlFor="mental_status"> Mental Status </label>
-            <input
-              type="text"
-              name="mental_status"
-              className="form-control"
-              placeholder="Mental Status"
-              value={mental_status}
-              onChange = {e => setMentalStatus(e.target.value)}
-              required
-              autoFocus
-            />
-          </fieldset>
+      <label>Mental Status</label>
+      <select ref={mental_status} className="form-control" name="mental_status" required >
+      <option   >Select</option>
+      {
+       props.mentalstatus.map(assessment=> {
+            if(props.assessment.mental_status_id === assessment.id){
+                return <option value={assessment.id} selected>{assessment.mental_status}</option>
+            }
+            else{
+                return <option value={assessment.id} >{assessment.mental_status}</option>
+            }
+            })
+        }
+       </select>
+      </fieldset>
+      <fieldset>
+      <label>Pupil Response</label>
+      <select  ref={pupil_response}  className="form-control" name="pupil_response" required >
+      <option value={props.assessment.pupil_response}>Select</option>
+      {
+       props.pupilresponse.map(assessment=> {
+            if(props.assessment.pupil_response_id === assessment.id){
+                return <option value={assessment.id} selected>{assessment.pupil_response}</option>
+            }
+            else{
+                return <option value={assessment.id} >{assessment.pupil_response}</option>
+            }
+            })
+        }
+       </select>
+      </fieldset>
           <fieldset>
-            <label className="card-text" htmlFor="pupil_response"> Pupil Response </label>
-            <input
-              type="text"
-              name="pupil_response"
-              className="form-control"
-              placeholder="Pupil Response"
-              value={pupil_response}
-              onChange = {e => setPupilResponse(e.target.value)}
-              required
-              autoFocus
-            />
-          </fieldset>
+      <label>Heart Sounds</label>
+      <select ref={heart_sounds} className="form-control" name="heart_sounds" required >
+      <option  value={props.assessment.heart_sounds}>Select</option>
+      {
+       props.heartsounds.map(assessment=> {
+            if(props.assessment.heart_sounds_id === assessment.id){
+                return <option value={assessment.id} selected>{assessment.heart_sounds}</option>
+            }
+            else{
+                return <option value={assessment.id} >{assessment.heart_sounds}</option>
+            }
+            })
+        }
+       </select>
+      </fieldset>
+      <fieldset>
+      <label>Breath Sounds</label>
+      <select ref={breath_sounds}  className="form-control" name="breath_sounds" required >
+      <option  value={props.assessment.breath_sounds}>Select</option>
+      {
+       props.breathsounds.map(assessment=> {
+            if(props.assessment.breath_sounds_id === assessment.id){
+                return <option value={assessment.id} selected>{assessment.breath_sounds}</option>
+            }
+            else{
+                return <option value={assessment.id} >{assessment.breath_sounds}</option>
+            }
+            })
+        }
+       </select>
+       <fieldset>
+      <label>Edema</label>
+      <select ref={edema} className="form-control" name="edema" required >
+      <option  value={props.assessment.edema}>Select</option>
+      {
+       props.edema.map(assessment=> {
+            if(props.assessment.edema_id === assessment.id){
+                return <option value={assessment.id} selected>{assessment.edema}</option>
+            }
+            else{
+                return <option value={assessment.id} >{assessment.edema}</option>
+            }
+            })
+        }
+       </select>
+      </fieldset>
+      <fieldset>
+      <label>Oxygen Rate</label>
+      <select ref={oxygen_rate} className="form-control" name="oxygen_rate" required >
+      <option  value={props.assessment.oxygen_rate}>Select</option>
+      {
+       props.oxygenrate.map(assessment=> {
+            if(props.assessment.oxygen_rate_id === assessment.id){
+                return <option value={assessment.id} selected>{assessment.oxygen_rate}</option>
+            }
+            else{
+                return <option value={assessment.id} >{assessment.oxygen_rate}</option>
+            }
+            })
+        }
+       </select>
+      </fieldset>
           <fieldset>
-            <label className="card-text" htmlFor="heart_sounds"> Heart Sounds </label>
-            <input
-              type="text"
-              name="heart_sounds"
-              className="form-control"
-              placeholder="Heart Sounds"
-              value={heart_sounds}
-              onChange = {e => setHeartSounds(e.target.value)}
-              required
-              autoFocus
-            />
-          </fieldset>
-          <fieldset>
-            <label className="card-text" htmlFor="breath_sounds"> Breath Sounds </label>
-            <input
-              type="text"
-              name="breath_sounds"
-              className="form-control"
-              placeholder="Breath Sounds"
-              value={breath_sounds}
-              onChange = {e => setBreathSounds(e.target.value)}
-              required
-              autoFocus
-            />
-          </fieldset>
-          <fieldset>
-            <label className="card-text" htmlFor="edema"> Edema </label>
-            <input
-              type="text"
-              name="edema"
-              className="form-control"
-              placeholder="Edema"
-              value={edema}
-              onChange = {e => setEdema(e.target.value)}
-              required
-              autoFocus
-            />
-          </fieldset>
-          <fieldset>
-            <label className="card-text" htmlFor="oxygen_rate"> Oxygen Rate </label>
-            <input
-              type="text"
-              name="oxygen_rate"
-              className="form-control"
-              placeholder="Oxygen Rate"
-              value={oxygen_rate}
-              onChange = {e => setOxygenRate(e.target.value)}
-              required
-              autoFocus
-            />
-          </fieldset>
-          <fieldset>
-            <label className="card-text" htmlFor="bowel_sounds"> Bowel Sounds </label>
-            <input
-              type="text"
-              name="bowel_sounds"
-              className="form-control"
-              placeholder="bowel_sounds"
-              value={bowel_sounds}
-              onChange = {e => setBowelSounds(e.target.value)}
-              required
-            />
-          </fieldset>
+      <label>Bowel Sounds</label>
+      <select ref={bowel_sounds} className="form-control" name="bowel_sounds" required >
+      <option  value={props.assessment.bowel_sounds}>Select</option>
+      {
+       props.bowelsounds.map(assessment=> {
+            if(props.assessment.bowel_sounds_id === assessment.id){
+                return <option value={assessment.id} selected>{assessment.bowel_sounds}</option>
+            }
+            else{
+                return <option value={assessment.id} >{assessment.bowel_sounds}</option>
+            }
+            })
+        }
+       </select>
+      </fieldset>
           
+      <fieldset>
+      <label>NPO</label>
+      <select ref={npo} className="form-control" name="npo" required >
+      <option  value={props.assessment.npo}>Select</option>
+      {
+       props.npo.map(assessment=> {
+            if(props.assessment.npo_id === assessment.id){
+                return <option value={assessment.id} selected>{assessment.npo}</option>
+            }
+            else{
+                return <option value={assessment.id} >{assessment.npo}</option>
+            }
+            })
+        }
+       </select>
+      </fieldset>
+      <fieldset>
+      <label>Urine Odor</label>
+      <select ref={urine_odor} className="form-control" name="urine_odor" required >
+      <option  value={props.assessment.urine_odor}>Select</option>
+      {
+       props.urineodor.map(assessment=> {
+            if(props.assessment.urine_odor_id === assessment.id){
+                return <option value={assessment.id} selected>{assessment.urine_odor}</option>
+            }
+            else{
+                return <option value={assessment.id} >{assessment.urine_odor}</option>
+            }
+            })
+        }
+       </select>
+      </fieldset>
           <fieldset>
-            <label className="card-text" htmlFor="npo"> NPO </label>
-            <input
-              type="text"
-              name="npo"
-              className="form-control"
-              placeholder="NPO Status"
-              value={npo}
-              onChange = {e => setNpo(e.target.value)}
-              required
-            />
-          </fieldset>
-          <fieldset>
-            <label className="card-text" htmlFor="urine_color"> Urine Color </label>
-            <input
-              type="text"
-              name="urine_color"
-              className="form-control"
-              placeholder="Urine Color"
-              value={urine_color}
-              onChange = {e => setUrineColor(e.target.value)}
-              required
-            />
-          </fieldset>
-          <fieldset>
-            <label className="card-text" htmlFor="urine_odor"> Urine Odor </label>
-            <input
-              type="text"
-              name="urine_odor"
-              className="form-control"
-              placeholder="Urine Odor"
-              value={urine_odor}
-              onChange = {e => setUrineOdor(e.target.value)}
-              required
-            />
-          </fieldset>
+      <label>Urine Color</label>
+      <select ref={urine_color} className="form-control" name="urine_color" required >
+      <option  value={props.assessment.urine_color}>Select</option>
+      {
+       props.urinecolor.map(assessment=> {
+            if(props.assessment.urine_color_id === assessment.id){
+                return <option value={assessment.id} selected>{assessment.urine_color}</option>
+            }
+            else{
+                return <option value={assessment.id} >{assessment.urine_color}</option>
+            }
+            })
+        }
+       </select>
+      </fieldset>
           <fieldset>
             <label className="card-text" htmlFor="urine_amount"> Urine Amount </label>
             <input
+              
               type="text"
               name="urine_amount"
               className="form-control"
+              value={urine_amount} 
+              onChange={e => setUrineAmount(e.target.value)}
               placeholder="Urine Amount"
-              value={urine_amount}
-              onChange = {e => setUrineAmount(e.target.value)}
               required
             />
+            </fieldset>
           <fieldset>
           <label className="card-text" htmlFor="last_bowel_movement"> Last BM </label>
           <input
           type="date"
+          value={last_bowel_movement} 
+          onChange={e => setLastBowelMovement(e.target.value)}
+
           name="last_bowel_movement"
           defaultValue={new Date()}
-          value={last_bowel_movement}
           
         >
             
