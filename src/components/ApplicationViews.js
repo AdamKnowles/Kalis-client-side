@@ -15,6 +15,12 @@ const ApplicationViews = () => {
     const { isAuthenticated } = useSimpleAuth();
     const [mentalstatus, setMentalStatus] = useState([]);
     const [heartsounds, setHeartSounds] = useState([]);
+    const [breathsounds, setBreathSounds] = useState([]);
+    const [bowelsounds, setBowelSounds] = useState([]);
+    const [edema, setEdema] = useState([]);
+    const [pupilresponse, setPupilResponse] = useState([]);
+    const [npo, setNpo] = useState([]);
+
 
 
     const getMentalStatus = () => {
@@ -49,10 +55,95 @@ const ApplicationViews = () => {
         .then(response => response.json())
         .then(setHeartSounds)
     }
+    const getBreathSounds = () => {
+      fetch(`http://localhost:8000/breathsounds`, {
+        method: "GET",
+        headers: {
+          
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.getItem(
+            "kalis_token"
+        )}`
+          
+        }
+      })
+        .then(response => response.json())
+        .then(setBreathSounds)
+    }
+    const getBowelSounds = () => {
+      fetch(`http://localhost:8000/bowelsounds`, {
+        method: "GET",
+        headers: {
+          
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.getItem(
+            "kalis_token"
+        )}`
+          
+        }
+      })
+        .then(response => response.json())
+        .then(setBowelSounds)
+    }
+    const getEdema = () => {
+      fetch(`http://localhost:8000/edema`, {
+        method: "GET",
+        headers: {
+          
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.getItem(
+            "kalis_token"
+        )}`
+          
+        }
+      })
+        .then(response => response.json())
+        .then(setEdema)
+    }
+    const getPupilResponse = () => {
+      fetch(`http://localhost:8000/pupilresponse`, {
+        method: "GET",
+        headers: {
+          
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.getItem(
+            "kalis_token"
+        )}`
+          
+        }
+      })
+        .then(response => response.json())
+        .then(setPupilResponse)
+    }
+    const getNpo = () => {
+      fetch(`http://localhost:8000/npo`, {
+        method: "GET",
+        headers: {
+          
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.getItem(
+            "kalis_token"
+        )}`
+          
+        }
+      })
+        .then(response => response.json())
+        .then(setNpo)
+    }
 
         useEffect(() => {
           getMentalStatus();
           getHeartSounds();
+          getBreathSounds();
+          getBowelSounds();
+          getEdema();
+          getPupilResponse();
+          getNpo();
           
         }, []);
 
@@ -87,7 +178,7 @@ const ApplicationViews = () => {
         path="/patientProfile/:patientProfileId(\d+)"
         render={props => {
           const patientId = +props.match.params.patientProfileId;
-          return <PatientProfile  patientProfileId={patientId} mentalstatus={mentalstatus} heartsounds={heartsounds} {...props} />;
+          return <PatientProfile  patientProfileId={patientId} npo={npo} pupilresponse={pupilresponse} edema={edema} bowelsounds={bowelsounds} breathsounds={breathsounds} mentalstatus={mentalstatus} heartsounds={heartsounds} {...props} />;
         }}
       />
           

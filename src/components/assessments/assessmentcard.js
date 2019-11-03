@@ -31,7 +31,7 @@ const AssessmentCard = props => {
         </tr>
         <tr>
           <th scope="row">Pupil Response</th>
-          <td>{props.assessment.pupil_response}mm</td>
+          <td>{props.assessment.pupil_response.pupil_response}mm</td>
         </tr>
         <tr>
           <th scope="row">Heart Sounds</th>
@@ -39,11 +39,11 @@ const AssessmentCard = props => {
         </tr>
         <tr>
           <th scope="row">Breath Sounds</th>
-          <td>{props.assessment.breath_sounds}</td>
+          <td>{props.assessment.breath_sounds.breath_sounds}</td>
         </tr>
         <tr>
           <th scope="row">Edema</th>
-          <td>{props.assessment.edema}+</td>
+          <td>{props.assessment.edema.edema}+</td>
         </tr>
         <tr>
           <th scope="row">Oxygen Rate</th>
@@ -51,11 +51,11 @@ const AssessmentCard = props => {
         </tr>
         <tr>
           <th scope="row">Bowel Sounds</th>
-          <td>{props.assessment.bowel_sounds}</td>
+          <td>{props.assessment.bowel_sounds.bowel_sounds}</td>
         </tr>
         <tr>
           <th scope="row">NPO</th>
-          <td>{props.assessment.npo}</td>
+          <td>{props.assessment.npo.npo}</td>
         </tr>
         <tr>
           <th scope="row">Last BM</th>

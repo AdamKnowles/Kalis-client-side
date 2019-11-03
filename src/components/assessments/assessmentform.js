@@ -130,18 +130,17 @@ const AssessmentForm = props => {
        }
        </select>
       </fieldset>
-          <fieldset>
-            <label className="card-text" htmlFor="pupil_response"> Pupil Response </label>
-            <input
-              ref={pupil_response}
-              type="text"
-              name="pupil_response"
-              className="form-control"
-              placeholder="Pupil Response"
-              required
-              autoFocus
-            />
-          </fieldset>
+      <fieldset>
+      <label>Pupil Response</label>
+      <select ref={pupil_response} className="form-control" name="pupil_response" required >
+      <option defaultValue="Select">Select</option>
+      {
+       props.pupilresponse.map(assessment => {
+           return <option key={assessment.id} value={assessment.id} >{assessment.pupil_response}</option>
+          })
+       }
+       </select>
+      </fieldset>
           <fieldset>
       <label>Heart Sounds</label>
       <select ref={heart_sounds} className="form-control" name="heart_sounds" required >
@@ -153,30 +152,27 @@ const AssessmentForm = props => {
        }
        </select>
       </fieldset>
-          <fieldset>
-            <label className="card-text" htmlFor="breath_sounds"> Breath Sounds </label>
-            <input
-              ref={breath_sounds}
-              type="text"
-              name="breath_sounds"
-              className="form-control"
-              placeholder="Breath Sounds"
-              required
-              autoFocus
-            />
-          </fieldset>
-          <fieldset>
-            <label className="card-text" htmlFor="edema"> Edema </label>
-            <input
-              ref={edema}
-              type="text"
-              name="edema"
-              className="form-control"
-              placeholder="Edema"
-              required
-              autoFocus
-            />
-          </fieldset>
+      <fieldset>
+      <label>Breath Sounds</label>
+      <select ref={breath_sounds} className="form-control" name="breath_sounds" required >
+      <option defaultValue="Select">Select</option>
+      {
+       props.breathsounds.map(assessment => {
+           return <option key={assessment.id} value={assessment.id} >{assessment.breath_sounds}</option>
+          })
+       }
+       </select>
+       <fieldset>
+      <label>Edema</label>
+      <select ref={edema} className="form-control" name="edema" required >
+      <option defaultValue="Select">Select</option>
+      {
+       props.edema.map(assessment => {
+           return <option key={assessment.id} value={assessment.id} >{assessment.edema}</option>
+          })
+       }
+       </select>
+      </fieldset>
           <fieldset>
             <label className="card-text" htmlFor="oxygen_rate"> Oxygen Rate </label>
             <input
@@ -190,28 +186,28 @@ const AssessmentForm = props => {
             />
           </fieldset>
           <fieldset>
-            <label className="card-text" htmlFor="bowel_sounds"> Bowel Sounds </label>
-            <input
-              ref={bowel_sounds}
-              type="text"
-              name="bowel_sounds"
-              className="form-control"
-              placeholder="bowel_sounds"
-              required
-            />
-          </fieldset>
+      <label>Bowel Sounds</label>
+      <select ref={bowel_sounds} className="form-control" name="bowel_sounds" required >
+      <option defaultValue="Select">Select</option>
+      {
+       props.bowelsounds.map(assessment => {
+           return <option key={assessment.id} value={assessment.id} >{assessment.bowel_sounds}</option>
+          })
+       }
+       </select>
+      </fieldset>
           
-          <fieldset>
-            <label className="card-text" htmlFor="npo"> NPO </label>
-            <input
-              ref={npo}
-              type="text"
-              name="npo"
-              className="form-control"
-              placeholder="NPO Status"
-              required
-            />
-          </fieldset>
+      <fieldset>
+      <label>NPO</label>
+      <select ref={npo} className="form-control" name="npo" required >
+      <option defaultValue="Select">Select</option>
+      {
+       props.npo.map(assessment => {
+           return <option key={assessment.id} value={assessment.id} >{assessment.npo}</option>
+          })
+       }
+       </select>
+      </fieldset>
           <fieldset>
             <label className="card-text" htmlFor="urine_color"> Urine Color </label>
             <input
@@ -244,6 +240,7 @@ const AssessmentForm = props => {
               placeholder="Urine Amount"
               required
             />
+            </fieldset>
           <fieldset>
           <label className="card-text" htmlFor="last_bowel_movement"> Last BM </label>
           <input
