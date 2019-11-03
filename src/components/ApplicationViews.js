@@ -20,6 +20,9 @@ const ApplicationViews = () => {
     const [edema, setEdema] = useState([]);
     const [pupilresponse, setPupilResponse] = useState([]);
     const [npo, setNpo] = useState([]);
+    const [urinecolor, setUrineColor] = useState([]);
+    const [urineodor, setUrineOdor] = useState([]);
+    const [oxygenrate, setOxygenRate] = useState([]);
 
 
 
@@ -135,6 +138,54 @@ const ApplicationViews = () => {
         .then(response => response.json())
         .then(setNpo)
     }
+    const getUrineColor = () => {
+      fetch(`http://localhost:8000/urinecolor`, {
+        method: "GET",
+        headers: {
+          
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.getItem(
+            "kalis_token"
+        )}`
+          
+        }
+      })
+        .then(response => response.json())
+        .then(setUrineColor)
+    }
+    const getUrineOdor = () => {
+      fetch(`http://localhost:8000/urineodor`, {
+        method: "GET",
+        headers: {
+          
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.getItem(
+            "kalis_token"
+        )}`
+          
+        }
+      })
+        .then(response => response.json())
+        .then(setUrineOdor)
+    }
+    const getOxygenRate = () => {
+      fetch(`http://localhost:8000/oxygenrate`, {
+        method: "GET",
+        headers: {
+          
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.getItem(
+            "kalis_token"
+        )}`
+          
+        }
+      })
+        .then(response => response.json())
+        .then(setOxygenRate)
+    }
 
         useEffect(() => {
           getMentalStatus();
@@ -144,6 +195,9 @@ const ApplicationViews = () => {
           getEdema();
           getPupilResponse();
           getNpo();
+          getUrineColor();
+          getUrineOdor();
+          getOxygenRate();
           
         }, []);
 
@@ -178,7 +232,8 @@ const ApplicationViews = () => {
         path="/patientProfile/:patientProfileId(\d+)"
         render={props => {
           const patientId = +props.match.params.patientProfileId;
-          return <PatientProfile  patientProfileId={patientId} npo={npo} pupilresponse={pupilresponse} edema={edema} bowelsounds={bowelsounds} breathsounds={breathsounds} mentalstatus={mentalstatus} heartsounds={heartsounds} {...props} />;
+          return <PatientProfile  patientProfileId={patientId} npo={npo} pupilresponse={pupilresponse} edema={edema} bowelsounds={bowelsounds} breathsounds={breathsounds} mentalstatus={mentalstatus} heartsounds={heartsounds}
+          oxygenrate={oxygenrate} urinecolor={urinecolor} urineodor={urineodor} {...props} />;
         }}
       />
           

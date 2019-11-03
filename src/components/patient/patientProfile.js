@@ -98,7 +98,7 @@ const PatientProfile = props => {
             </div>
         
         {/* rendering the assessments component */}
-      <Assessments mentalstatus={props.mentalstatus} heartsounds={props.heartsounds} npo={props.npo} pupilresponse={props.pupilresponse} edema={props.edema} bowelsounds={props.bowelsounds} breathsounds={props.breathsounds}  {...props} />
+      <Assessments mentalstatus={props.mentalstatus} heartsounds={props.heartsounds} npo={props.npo} pupilresponse={props.pupilresponse} edema={props.edema} bowelsounds={props.bowelsounds} breathsounds={props.breathsounds} oxygenrate={props.oxygenrate} urinecolor={props.urinecolor} urineodor={props.urineodor}  {...props} />
         </Card>
       </Col>
     </Row>

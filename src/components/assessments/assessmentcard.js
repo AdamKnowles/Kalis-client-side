@@ -47,7 +47,7 @@ const AssessmentCard = props => {
         </tr>
         <tr>
           <th scope="row">Oxygen Rate</th>
-          <td>{props.assessment.oxygen_rate} L</td>
+          <td>{props.assessment.oxygen_rate.oxygen_rate} L</td>
         </tr>
         <tr>
           <th scope="row">Bowel Sounds</th>
@@ -63,11 +63,11 @@ const AssessmentCard = props => {
         </tr>
         <tr>
           <th scope="row">Urine Color</th>
-          <td>{props.assessment.urine_color}</td>
+          <td>{props.assessment.urine_color.urine_color}</td>
         </tr>
         <tr>
           <th scope="row">Urine Odor</th>
-          <td>{props.assessment.urine_odor}</td>
+          <td>{props.assessment.urine_odor.urine_odor}</td>
         </tr>
         <tr>
           <th scope="row">Urine Amount</th>

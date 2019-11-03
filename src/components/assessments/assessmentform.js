@@ -173,18 +173,17 @@ const AssessmentForm = props => {
        }
        </select>
       </fieldset>
-          <fieldset>
-            <label className="card-text" htmlFor="oxygen_rate"> Oxygen Rate </label>
-            <input
-              ref={oxygen_rate}
-              type="text"
-              name="oxygen_rate"
-              className="form-control"
-              placeholder="Oxygen Rate"
-              required
-              autoFocus
-            />
-          </fieldset>
+      <fieldset>
+      <label>Oxygen Rate</label>
+      <select ref={oxygen_rate} className="form-control" name="oxygen_rate" required >
+      <option defaultValue="Select">Select</option>
+      {
+       props.oxygenrate.map(assessment => {
+           return <option key={assessment.id} value={assessment.id} >{assessment.oxygen_rate}</option>
+          })
+       }
+       </select>
+      </fieldset>
           <fieldset>
       <label>Bowel Sounds</label>
       <select ref={bowel_sounds} className="form-control" name="bowel_sounds" required >
@@ -208,28 +207,28 @@ const AssessmentForm = props => {
        }
        </select>
       </fieldset>
+      <fieldset>
+      <label>Urine Odor</label>
+      <select ref={urine_odor} className="form-control" name="urine_odor" required >
+      <option defaultValue="Select">Select</option>
+      {
+       props.urineodor.map(assessment => {
+           return <option key={assessment.id} value={assessment.id} >{assessment.urine_odor}</option>
+          })
+       }
+       </select>
+      </fieldset>
           <fieldset>
-            <label className="card-text" htmlFor="urine_color"> Urine Color </label>
-            <input
-              ref={urine_color}
-              type="text"
-              name="urine_color"
-              className="form-control"
-              placeholder="Urine Color"
-              required
-            />
-          </fieldset>
-          <fieldset>
-            <label className="card-text" htmlFor="urine_odor"> Urine Odor </label>
-            <input
-              ref={urine_odor}
-              type="text"
-              name="urine_odor"
-              className="form-control"
-              placeholder="Urine Odor"
-              required
-            />
-          </fieldset>
+      <label>Urine Color</label>
+      <select ref={urine_color} className="form-control" name="urine_color" required >
+      <option defaultValue="Select">Select</option>
+      {
+       props.urinecolor.map(assessment => {
+           return <option key={assessment.id} value={assessment.id} >{assessment.urine_color}</option>
+          })
+       }
+       </select>
+      </fieldset>
           <fieldset>
             <label className="card-text" htmlFor="urine_amount"> Urine Amount </label>
             <input
