@@ -122,10 +122,10 @@ const AssessmentForm = props => {
           <fieldset>
       <label>Mental Status</label>
       <select ref={mental_status} className="form-control" name="mental_status" required >
-      <option value="what" disabled selected>Select</option>
+      <option defaultValue="Select">Select</option>
       {
        props.mentalstatus.map(assessment => {
-           return <option value={assessment.id} >{assessment.mental_status}</option>
+           return <option key={assessment.id} value={assessment.id} >{assessment.mental_status}</option>
           })
        }
        </select>
@@ -143,17 +143,16 @@ const AssessmentForm = props => {
             />
           </fieldset>
           <fieldset>
-            <label className="card-text" htmlFor="heart_sounds"> Heart Sounds </label>
-            <input
-              ref={heart_sounds}
-              type="text"
-              name="heart_sounds"
-              className="form-control"
-              placeholder="Heart Sounds"
-              required
-              autoFocus
-            />
-          </fieldset>
+      <label>Heart Sounds</label>
+      <select ref={heart_sounds} className="form-control" name="heart_sounds" required >
+      <option defaultValue="Select">Select</option>
+      {
+       props.heartsounds.map(assessment => {
+           return <option key={assessment.id} value={assessment.id} >{assessment.heart_sounds}</option>
+          })
+       }
+       </select>
+      </fieldset>
           <fieldset>
             <label className="card-text" htmlFor="breath_sounds"> Breath Sounds </label>
             <input

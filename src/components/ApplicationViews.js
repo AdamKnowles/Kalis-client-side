@@ -14,6 +14,7 @@ import MyPatients from "./mypatients/mypatientlist"
 const ApplicationViews = () => {
     const { isAuthenticated } = useSimpleAuth();
     const [mentalstatus, setMentalStatus] = useState([]);
+    const [heartsounds, setHeartSounds] = useState([]);
 
 
     const getMentalStatus = () => {
@@ -32,9 +33,26 @@ const ApplicationViews = () => {
         .then(response => response.json())
         .then(setMentalStatus)
     }
+    const getHeartSounds = () => {
+      fetch(`http://localhost:8000/heartsounds`, {
+        method: "GET",
+        headers: {
+          
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.getItem(
+            "kalis_token"
+        )}`
+          
+        }
+      })
+        .then(response => response.json())
+        .then(setHeartSounds)
+    }
 
         useEffect(() => {
           getMentalStatus();
+          getHeartSounds();
           
         }, []);
 
@@ -69,7 +87,7 @@ const ApplicationViews = () => {
         path="/patientProfile/:patientProfileId(\d+)"
         render={props => {
           const patientId = +props.match.params.patientProfileId;
-          return <PatientProfile  patientProfileId={patientId} mentalstatus={mentalstatus} {...props} />;
+          return <PatientProfile  patientProfileId={patientId} mentalstatus={mentalstatus} heartsounds={heartsounds} {...props} />;
         }}
       />
           
