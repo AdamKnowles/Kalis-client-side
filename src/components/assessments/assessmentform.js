@@ -183,7 +183,7 @@ const AssessmentForm = props => {
        </select>
       </fieldset>
       <fieldset>
-      <label>Oxygen Rate</label>
+      <label>Oxygen Rate(L)</label>
       <select ref={oxygen_rate} className="form-control" name="oxygen_rate" required >
       <option defaultValue="Select">Select</option>
       {
@@ -206,7 +206,7 @@ const AssessmentForm = props => {
       </fieldset>
           
       <fieldset>
-      <label>NPO</label>
+      <label>NPO(Nothing by Mouth)</label>
       <select ref={npo} className="form-control" name="npo" required >
       <option defaultValue="Select">Select</option>
       {
@@ -239,7 +239,7 @@ const AssessmentForm = props => {
        </select>
       </fieldset>
           <fieldset>
-            <label className="card-text" htmlFor="urine_amount"> Urine Amount </label>
+            <label className="card-text" htmlFor="urine_amount"> Urine Amount(mL) </label>
             <input
               ref={urine_amount}
               type="text"
