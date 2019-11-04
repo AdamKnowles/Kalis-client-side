@@ -48,10 +48,16 @@ const VitalSignForm = props => {
         patient_id: +props.match.params.patientProfileId
       
     };
-   
-      {
+    if (oxygen_saturation.current.value > 100){
+      alert("O2 Sat can not exceed 100%")
+    }
+    else{
+
       createVitalSign(newVitalSign).then(() => props.getVitalSigns()).then(() => toggle())
     }
+   
+      
+    
   };
 
   

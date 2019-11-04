@@ -98,17 +98,16 @@ const PatientForm = props => {
           </fieldset>
           
           <fieldset>
-            <label className="card-text" htmlFor="sex"> Sex </label>
-            <input
-              ref={sex}
-              type="text"
-              name="sex"
-              
-              className="form-control"
-              placeholder="Sex"
-              required
-            />
-          </fieldset>
+      <label>Sex</label>
+      <select ref={sex} className="form-control" name="sex" required >
+      <option defaultValue="Select">Select</option>
+      {
+       props.patientgender.map(sex => {
+           return <option key={sex.id} value={sex.id} >{sex.sex}</option>
+          })
+       }
+       </select>
+      </fieldset>
           <fieldset>
             <label className="card-text" htmlFor="diagnosis"> Diagnosis </label>
             <input

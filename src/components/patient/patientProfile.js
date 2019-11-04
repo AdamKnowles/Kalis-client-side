@@ -78,7 +78,7 @@ const PatientProfile = props => {
           <Col sm="12">
           <Card body>
             <div className="d-flex justify-content-center">
-            <h3>{(patient.first_name)} {patient.last_name}'s Profile</h3>
+            <h3>{(patient.first_name)} {patient.last_name}</h3>
             
             </div>
           
@@ -94,7 +94,7 @@ const PatientProfile = props => {
       <Col sm="12">
       <Card body>
       <div className="d-flex justify-content-center">
-            <h3>{patient.first_name} {patient.last_name}'s Profile</h3>
+            <h3>{patient.first_name} {patient.last_name}</h3>
             </div>
         
         {/* rendering the assessments component */}

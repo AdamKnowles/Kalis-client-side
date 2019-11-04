@@ -26,7 +26,7 @@ const MyPatientCard = props => {
           </div>
           <div className="d-flex justify-content-center mb-2">   
           <div className="mr-3"><strong>Birth Date: </strong>{props.patient.patient.birth_date}</div>
-          <div className="mr-3"><strong>Sex: </strong>{props.patient.patient.sex}</div>
+          <div className="mr-3"><strong>Sex: </strong>{props.patient.patient.sex.sex}</div>
           </div>
           <div className="d-flex justify-content-center mb-3">
           <div><strong>Diagnosis: </strong>{props.patient.patient.diagnosis}</div>
