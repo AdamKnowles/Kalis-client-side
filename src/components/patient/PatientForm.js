@@ -16,6 +16,7 @@ const PatientForm = props => {
 
   const handleCreate = e => {
     e.preventDefault();
+    
 
     const newPatient = {
       first_name: first_name.current.value.toLowerCase(),
@@ -27,11 +28,8 @@ const PatientForm = props => {
     };
    
       {
-      createPatient(newPatient).then(() => {
-        props.history.push({
-          pathname: "/"
-        });
-      });
+      createPatient(newPatient)
+      
     }
   };
 
@@ -49,7 +47,15 @@ const PatientForm = props => {
         
       },
       body: JSON.stringify(newPatient)
-    }).then(res => res.json());
+    }).then(res => res.json())
+    .then(res => {
+      if ("error" in res == true) {
+        alert("You can not have birth date in the future")
+      } 
+      else {
+        props.history.push("/");
+      }
+    });
   };
 
   

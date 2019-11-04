@@ -80,7 +80,7 @@ const filterByLastName = (last_name) => {
     <div className="d-flex justify-content-center mb-4">
     <Button  
     type="button" color="info" onClick={() => props.history.push("/patientform")}>
-    Add New Patient
+    Admit New Patient
     </Button>
     </div>
     <div className="d-flex justify-content-center">
