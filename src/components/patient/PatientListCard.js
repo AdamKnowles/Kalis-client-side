@@ -61,13 +61,13 @@ const PatientListCard = props => {
           </div>
           <div className="d-flex justify-content-center mb-2">   
           <div className="mr-3"><strong>Birth Date: </strong>{props.patient.birth_date}</div>
-          <div className="mr-3"><strong>Sex: </strong>{props.patient.sex}</div>
+          <div className="mr-3"><strong>Sex: </strong>{props.patient.sex.sex}</div>
           </div>
           <div className="d-flex justify-content-center mb-3">
           <div ><strong>Diagnosis: </strong>{props.patient.diagnosis}</div>
           </div>
           <div className="d-flex justify-content-center">
-          <Button className="mr-2" color="info" onClick={() => props.deletePatient(props.patient.id)}>Delete</Button>
+          <Button className="mr-2" color="info" onClick={() => props.deletePatient(props.patient.id)}>Discharge</Button>
           <Button color="info" onClick = {() => createNewMyPatient()}>Add to My Patients</Button>
           </div>
           </CardBody>

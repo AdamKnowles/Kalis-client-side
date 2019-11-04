@@ -23,6 +23,7 @@ const ApplicationViews = () => {
     const [urinecolor, setUrineColor] = useState([]);
     const [urineodor, setUrineOdor] = useState([]);
     const [oxygenrate, setOxygenRate] = useState([]);
+    const [patientgender, setPatientGender] = useState([]);
 
 
 
@@ -186,6 +187,22 @@ const ApplicationViews = () => {
         .then(response => response.json())
         .then(setOxygenRate)
     }
+    const getPatientGender = () => {
+      fetch(`http://localhost:8000/patientgender`, {
+        method: "GET",
+        headers: {
+          
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.getItem(
+            "kalis_token"
+        )}`
+          
+        }
+      })
+        .then(response => response.json())
+        .then(setPatientGender)
+    }
 
         useEffect(() => {
           getMentalStatus();
@@ -198,6 +215,7 @@ const ApplicationViews = () => {
           getUrineColor();
           getUrineOdor();
           getOxygenRate();
+          getPatientGender();
           
         }, []);
 
@@ -261,7 +279,7 @@ const ApplicationViews = () => {
       <Route
         path="/patientform"
         render={props => {
-          return <PatientForm {...props} />;
+          return <PatientForm patientgender={patientgender} {...props} />;
         }}
       />
       

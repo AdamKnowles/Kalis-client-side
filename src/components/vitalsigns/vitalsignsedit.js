@@ -53,24 +53,30 @@ const VitalSignsEditForm = props => {
         respiration_rate: respiration_rate,
         patient_id: props.vitalsign.patient_id
     }
+    if (oxygen_saturation > 100){
+      alert("O2 Sat can not exceed 100%")
+    }
+    else{
+
+      fetch(`http://localhost:8000/vitalsigns/${props.vitalsign.id}`, {
+          method: "PUT",
+          headers: {
+              "Accept": "application/json",
+              "Content-Type": "application/json",
+              Authorization: `Token ${localStorage.getItem(
+                  "kalis_token"
+              )}`
+          },
+          body: JSON.stringify(editVitalSign)
+  
+          
+        })
+        .then( () => props.getVitalSigns())
+        .then(() => toggle())
+      }
+    }
     
 
-    fetch(`http://localhost:8000/vitalsigns/${props.vitalsign.id}`, {
-        method: "PUT",
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-            Authorization: `Token ${localStorage.getItem(
-                "kalis_token"
-            )}`
-        },
-        body: JSON.stringify(editVitalSign)
-
-        
-      })
-      .then( () => props.getVitalSigns())
-      .then(() => toggle())
-    }
 
     return (
         <>

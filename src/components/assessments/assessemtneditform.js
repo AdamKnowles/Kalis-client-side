@@ -77,11 +77,19 @@ const AssessmentEditForm = props => {
         body: JSON.stringify(editAssessment)
 
         
-      })
-      .then( () => props.getAssessments())
-      .then(() => toggle())
-      
-    }
+      }).then(res => res.json())
+      .then(res => {
+        if ("error" in res == true) {
+          alert("Can not enter BM date in the future")
+        } 
+        else {
+           props.getAssessments()
+           toggle()
+        }
+      });
+    };
+  
+    
 
    
 

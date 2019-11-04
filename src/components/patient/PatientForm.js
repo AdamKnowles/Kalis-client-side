@@ -16,6 +16,7 @@ const PatientForm = props => {
 
   const handleCreate = e => {
     e.preventDefault();
+    
 
     const newPatient = {
       first_name: first_name.current.value.toLowerCase(),
@@ -27,11 +28,8 @@ const PatientForm = props => {
     };
    
       {
-      createPatient(newPatient).then(() => {
-        props.history.push({
-          pathname: "/"
-        });
-      });
+      createPatient(newPatient)
+      
     }
   };
 
@@ -49,7 +47,15 @@ const PatientForm = props => {
         
       },
       body: JSON.stringify(newPatient)
-    }).then(res => res.json());
+    }).then(res => res.json())
+    .then(res => {
+      if ("error" in res == true) {
+        alert("You can not have birth date in the future")
+      } 
+      else {
+        props.history.push("/");
+      }
+    });
   };
 
   
@@ -92,17 +98,16 @@ const PatientForm = props => {
           </fieldset>
           
           <fieldset>
-            <label className="card-text" htmlFor="sex"> Sex </label>
-            <input
-              ref={sex}
-              type="text"
-              name="sex"
-              
-              className="form-control"
-              placeholder="Sex"
-              required
-            />
-          </fieldset>
+      <label>Sex</label>
+      <select ref={sex} className="form-control" name="sex" required >
+      <option defaultValue="Select">Select</option>
+      {
+       props.patientgender.map(sex => {
+           return <option key={sex.id} value={sex.id} >{sex.sex}</option>
+          })
+       }
+       </select>
+      </fieldset>
           <fieldset>
             <label className="card-text" htmlFor="diagnosis"> Diagnosis </label>
             <input

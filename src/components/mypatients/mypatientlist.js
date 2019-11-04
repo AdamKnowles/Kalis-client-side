@@ -19,6 +19,8 @@ const MyPatients = props => {
         Authorization: `Token ${localStorage.getItem("kalis_token")}`
         
       }
+
+
     })
       .then(response => response.json())
       .then(setPatients)
@@ -49,7 +51,7 @@ const MyPatients = props => {
     </div>
     
     
-    {patients.map(patient => (
+    {patients.filter(patient => patient.patient.deleted == null).map(patient => (
 
       <MyPatientCard key={patient.id} patient={patient} deletePatient={deletePatient} {...props} />
     ))}
