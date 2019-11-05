@@ -122,7 +122,9 @@ const AssessmentForm = props => {
   // Create HTML representation with JSX
   return (
     <>
+    <div className="d-flex justify-content-center mb-4">
       <Button color="info" onClick={toggle}>Add Assessment</Button>
+      </div>
       <Modal isOpen={modal} toggle={toggle} className={className}>
       {/* Add Patient Form */}
       <main style={{ textAlign: "center" }}>

@@ -27,6 +27,7 @@ const PatientList = props => {
     })
       .then(response => response.json())
       .then(setPatients)
+      
   }
 
   const deletePatient = (id) => {
@@ -55,14 +56,23 @@ const filterByLastName = (last_name) => {
           "Content-Type": "application/json",
           Authorization: `Token ${localStorage.getItem("kalis_token")}`
     }
-  })
-    .then(response => response.json())
+
+    
+  }).then(response => response.json())
     .then(setPatients)
+    .then(() => {
+      if (patients.length === 0){
+        getPatients()
+        alert("patient not found")
+      }
+    })
+    
   }
 
   const SearchSubmitButton = e => {
     e.preventDefault()
     filterByLastName(searchBar.current.value)
+    
 }
   const clear = e => {
     getPatients()
