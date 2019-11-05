@@ -82,8 +82,9 @@ const VitalSignsEditForm = props => {
         <>
         
 
-
+<div className="d-flex justify-content-center">
 <Button color="info" onClick={toggle}>Edit Vital Signs</Button>
+</div>
 <Modal isOpen={modal} toggle={toggle} className={className}>
 {/* Add Patient Form */}
 <main style={{ textAlign: "center" }}>

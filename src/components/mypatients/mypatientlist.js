@@ -19,8 +19,6 @@ const MyPatients = props => {
         Authorization: `Token ${localStorage.getItem("kalis_token")}`
         
       }
-
-
     })
       .then(response => response.json())
       .then(setPatients)
@@ -34,9 +32,7 @@ const MyPatients = props => {
           "Content-Type": "application/json",
           Authorization: `Token ${localStorage.getItem(
             "kalis_token"
-        )}`
-          
-            
+        )}`   
         }
     })
         .then(getMyPatients)
@@ -45,7 +41,8 @@ const MyPatients = props => {
   useEffect(getMyPatients, [])
 
   return (
-    <><div className="">
+    <>
+      <div className="">
       <div className="d-flex justify-content-center mb-5">
     <h2><strong> My Patients</strong></h2>
     </div>

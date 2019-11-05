@@ -85,7 +85,7 @@ const VitalSignForm = props => {
   // Create HTML representation with JSX
   return (
     <>
-    <div >
+    <div className="d-flex justify-content-center mb-4">
       <Button  color="info" onClick={toggle}>Add Vital Signs</Button>
       </div>
       <Modal isOpen={modal} toggle={toggle} className={className}>

@@ -20,6 +20,7 @@ const PatientProfile = props => {
   }
 
   const [patient, setPatient] = useState([]);
+  const [sex, setSex] = useState([] )
   
 
   const getPatient = patientProfileId => {
@@ -34,11 +35,13 @@ const PatientProfile = props => {
       .then(response => response.json())
       .then(patient => {
         setPatient(patient);
+        setSex(patient.sex)
+        
       });
   };
 
   
-  
+  console.log(sex)
   
   useEffect(() => {
     getPatient(props.patientProfileId);
@@ -53,7 +56,8 @@ const PatientProfile = props => {
   //If the category ID matches the categoryProfile ID, show all products and information associated with that category
 
   return (
-    <><div>
+    <><div >
+      <div className="d-flex justify-content-center">
     <Nav tabs>
       <NavItem>
         <NavLink
@@ -72,15 +76,24 @@ const PatientProfile = props => {
         </NavLink>
       </NavItem>
     </Nav>
+    </div>
     <TabContent activeTab={activeTab}>
       <TabPane tabId="1">
         <Row>
           <Col sm="12">
           <Card body>
-            <div className="d-flex justify-content-center">
+          <div className="d-flex justify-content-center mb-1">
             <h3>{(patient.first_name)} {patient.last_name}</h3>
-            
             </div>
+            <div>
+            <div className="d-flex justify-content-center mb-4">   
+          <div className="mr-3"><strong>Birth Date: </strong>{patient.birth_date}</div>
+          <div className="mr-3"><strong>Sex: </strong>{sex.sex}</div>
+          <div className="mr-3"><strong>Diagnosis: </strong>{patient.diagnosis}</div>
+          </div>
+            </div>
+            
+            
           
       {/* vital signs component rendered */}
       <VitalSigns  {...props} />
@@ -93,8 +106,15 @@ const PatientProfile = props => {
     <Row>
       <Col sm="12">
       <Card body>
-      <div className="d-flex justify-content-center">
-            <h3>{patient.first_name} {patient.last_name}</h3>
+      <div className="d-flex justify-content-center mb-1">
+            <h3>{(patient.first_name)} {patient.last_name}</h3>
+            </div>
+            <div>
+            <div className="d-flex justify-content-center mb-4">   
+          <div className="mr-3"><strong>Birth Date: </strong>{patient.birth_date}</div>
+          <div className="mr-3"><strong>Sex: </strong>{sex.sex}</div>
+          <div className="mr-3"><strong>Diagnosis: </strong>{patient.diagnosis}</div>
+          </div>
             </div>
         
         {/* rendering the assessments component */}
