@@ -30,7 +30,7 @@ const Register = props => {
 
         register(newUser).then(() => {
             props.history.push({
-                pathname: "/login"
+                pathname: "/"
             })
         })
     }
