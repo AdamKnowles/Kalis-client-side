@@ -102,7 +102,7 @@ const VitalSignForm = props => {
               type="text"
               name="name"
               className="form-control"
-              placeholder="Temperature"
+              placeholder="Temperature i.e 98.6"
               required
               autoFocus
             />
@@ -114,7 +114,7 @@ const VitalSignForm = props => {
               type="text"
               name="blood_pressure"
               className="form-control"
-              placeholder="Blood Pressure"
+              placeholder="Blood Pressure i.e 120/80"
               required
             />
           </fieldset>
@@ -126,7 +126,7 @@ const VitalSignForm = props => {
               type="text"
               name="heart_rate"
               className="form-control"
-              placeholder="Heart Rate"
+              placeholder="Heart Rate i.e 72"
               required
             />
           </fieldset>
@@ -137,7 +137,7 @@ const VitalSignForm = props => {
               type="text"
               name="respiration_rate"
               className="form-control"
-              placeholder="Respiration Rate"
+              placeholder="Respiration Rate i.e 18"
               required
             />
           </fieldset>
@@ -148,7 +148,7 @@ const VitalSignForm = props => {
               type="text"
               name="oxygen_saturation"
               className="form-control"
-              placeholder="O2 Sats"
+              placeholder="O2 Sats i.e 94"
               required
             />
           </fieldset>

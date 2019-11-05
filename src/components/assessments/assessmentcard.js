@@ -70,7 +70,7 @@ const AssessmentCard = props => {
           <td>{props.assessment.urine_odor.urine_odor}</td>
         </tr>
         <tr>
-          <th scope="row">Urine Amount</th>
+          <th scope="row">Urine Amount(mL)</th>
           <td>{props.assessment.urine_amount} mL</td>
         </tr>
       </tbody>
