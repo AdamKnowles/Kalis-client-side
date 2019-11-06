@@ -71,6 +71,7 @@ const PatientForm = props => {
         <form className="form--login" onSubmit={handleCreate}>
           <div className="card">
             <div className="card-body">
+              <div className="patient-profile-detail-text">
           <h1 className="card-title h3 mb-3 font-weight-normal">Create a New Patient</h1>
           <fieldset>
             <label className="card-text" htmlFor="first_name"> First Name </label>
@@ -138,6 +139,7 @@ const PatientForm = props => {
             <Button color="info" type="submit">submit</Button>
             </div>
           </fieldset>
+          </div>
           </div>
           </div>
         </form>

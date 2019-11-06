@@ -59,12 +59,14 @@ const PatientListCard = props => {
           <Link className="card-text" to={`/patientProfile/${props.patient.id}`}><h3>
           {Capitalize(props.patient.last_name)}, {Capitalize(props.patient.first_name)} </h3></Link>
           </div>
+          <div className= "patient-profile-detail-text">
           <div className="d-flex justify-content-center mb-2">   
           <div className="mr-3"><strong>Birth Date: </strong>{props.patient.birth_date}</div>
           <div className="mr-3"><strong>Sex: </strong>{props.patient.sex.sex}</div>
           </div>
           <div className="d-flex justify-content-center mb-3">
           <div ><strong>Diagnosis: </strong>{props.patient.diagnosis}</div>
+          </div>
           </div>
           <div className="d-flex justify-content-center">
           <Button className="mr-2" color="info" onClick={() => props.deletePatient(props.patient.id)}>Discharge</Button>
