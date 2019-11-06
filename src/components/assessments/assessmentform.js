@@ -90,7 +90,7 @@ const AssessmentForm = props => {
     }).then(res => res.json())
     .then(res => {
       if ("error" in res == true) {
-        alert("Can not enter BM date in the future")
+        alert("You can not poop in the future")
       } 
       
       

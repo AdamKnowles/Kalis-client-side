@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import PatientListCard from "./PatientListCard";
 import {Button, Card, CardBody} from "reactstrap"
+import PatientForm from "./PatientForm"
 
 // Author: Adam Knowles
 // Purpose: Show all products and related information that a user has shown for sale
@@ -90,10 +91,7 @@ const filterByLastName = (last_name) => {
     </div>
     </div>
     <div className="d-flex justify-content-center mb-4">
-    <Button  
-    type="button" color="info" onClick={() => props.history.push("/patientform")}>
-    Admit New Patient
-    </Button>
+    <PatientForm getPatients={getPatients} {...props} />
     </div>
     <div className="d-flex justify-content-center">
       <div className="mr-2">
@@ -115,6 +113,8 @@ const filterByLastName = (last_name) => {
             </div>
     
     {patients.map(patient => (
+
+      
 
       <PatientListCard key={patient.id} patient={patient} patients={patients}  deletePatient={deletePatient} {...props} />
     ))}

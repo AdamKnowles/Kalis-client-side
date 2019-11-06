@@ -238,7 +238,7 @@ const ApplicationViews = () => {
                 if(isAuthenticated())
                   return (
                       <>
-                      <PatientList {...props} />
+                      <PatientList patientgender={patientgender} {...props} />
                       
                       </>
                   )
