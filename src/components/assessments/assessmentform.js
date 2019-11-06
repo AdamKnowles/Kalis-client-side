@@ -128,7 +128,7 @@ const AssessmentForm = props => {
       <Modal isOpen={modal} toggle={toggle} className={className}>
       {/* Add Patient Form */}
       <main style={{ textAlign: "center" }}>
-        <form className="form--login" onSubmit={handleCreate}>
+        <form className="form--login patient-form" onSubmit={handleCreate}>
           <div className="card">
             <div className="card-body">
           <h1 className="card-title h3 mb-3 font-weight-normal">Enter in a new Assessment</h1>

@@ -88,7 +88,7 @@ const VitalSignsEditForm = props => {
 <Modal isOpen={modal} toggle={toggle} className={className}>
 {/* Add Patient Form */}
 <main style={{ textAlign: "center" }}>
-  <form className="form--login" onSubmit={handleEditVitalSigns}>
+  <form className="form--login patient-form" onSubmit={handleEditVitalSigns}>
     <div className="card">
       <div className="card-body">
     <h1 className="card-title h3 mb-3 font-weight-normal">Enter in Vital Signs</h1>

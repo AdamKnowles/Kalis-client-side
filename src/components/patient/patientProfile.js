@@ -83,7 +83,7 @@ const PatientProfile = props => {
           <Col sm="12">
           <Card body>
           <div className="d-flex justify-content-center mb-1">
-            <h3>{(patient.first_name)} {patient.last_name}</h3>
+            <h3 className="patient-name">{(patient.first_name)} {patient.last_name}</h3>
             </div>
             <div>
             <div className="d-flex justify-content-center mb-4">   
@@ -107,7 +107,7 @@ const PatientProfile = props => {
       <Col sm="12">
       <Card body>
       <div className="d-flex justify-content-center mb-1">
-            <h3>{(patient.first_name)} {patient.last_name}</h3>
+            <h3 className="patient-name">{(patient.first_name)} {patient.last_name}</h3>
             </div>
             <div>
             <div className="d-flex justify-content-center mb-4">   

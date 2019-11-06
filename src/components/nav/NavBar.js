@@ -7,8 +7,8 @@ const NavBar = props => {
   const { isAuthenticated, logout } = useSimpleAuth();
 
   return (
-    <nav className="navbar navbar-light light-blue flex-md-nowrap p-0 shadow">
-      <div style={{ fontSize: "2em", marginLeft: "1em" }}>
+    <nav className="navbar navbar-light light-blue flex-md-nowrap">
+      <div style={{ fontSize: "2em", marginLeft: "1em", color: "#068484"}}>
         <strong>Kalis</strong>
       </div>
       <ul className="nav nav-pills nav-fill">

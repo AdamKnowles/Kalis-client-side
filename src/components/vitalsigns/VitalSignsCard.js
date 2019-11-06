@@ -16,13 +16,13 @@ import moment from "moment"
 
 const VitalSignsCard = props => {
   
-  ;
+  
     
   
   return (
     <>
-    
-    <div className="text-center"><strong>{moment(props.vitalsign.time).format('L')}</strong></div>
+    <div className="patient-data-card">
+    <div className="text-center patient-timestamp">{moment(props.vitalsign.time).format('L')}</div>
       <Table bordered className="mt-1" >
       
       <tbody>
@@ -42,6 +42,7 @@ const VitalSignsCard = props => {
           <th scope="row">BP</th>
           <td>{props.vitalsign.blood_pressure}</td>
         </tr>
+        
         <tr>
           <th scope="row">RR</th>
           <td>{props.vitalsign.respiration_rate} bpm</td>
@@ -53,6 +54,7 @@ const VitalSignsCard = props => {
       </tbody>
     </Table>
     <VitalSignsEditForm  vitalsign={props.vitalsign} getVitalsigns={props.getVitalsigns}  {...props} />
+    </div>
     </>
   )
 }
