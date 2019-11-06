@@ -37,8 +37,9 @@ const Register = props => {
 
     return (
         <main style={{ textAlign: "center" }}>
+                <div className="patient-profile-detail-text">
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Register for Bangazon</h1>
+                <h1 className="h3 mb-3 font-weight-normal">Register for Kalis</h1>
                 <fieldset>
                     <label htmlFor="userName"> Username </label>
                     <input ref={userName} type="text"
@@ -95,7 +96,7 @@ const Register = props => {
                         placeholder="Password"
                         required />
                 </fieldset>
-                <fieldset>
+                <fieldset className="mb-2">
                     <label htmlFor="verifyPassword"> Verify Password </label>
                     <input ref={verifyPassword} type="password"
                         name="verifyPassword"
@@ -103,12 +104,13 @@ const Register = props => {
                         placeholder="Verify password"
                         required />
                 </fieldset>
-                <fieldset>
+                <fieldset className="mb-5">
                     <button type="submit">
                         Sign in
                     </button>
                 </fieldset>
             </form>
+                </div>
         </main>
     )
 }

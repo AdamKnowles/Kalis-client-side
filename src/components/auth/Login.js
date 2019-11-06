@@ -31,8 +31,9 @@ const Login = props => {
 
     return (
         <main style={{textAlign:"center"}}>
+            <div className="patient-profile-detail-text">
             <form className="form--login" onSubmit={handleLogin}>
-                <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+                <h1 className="h3 mb-3 font-weight-normal">Please Sign In</h1>
                 <fieldset>
                     <label htmlFor="inputEmail"> Username</label>
                     <input ref={username} type="username"
@@ -40,7 +41,7 @@ const Login = props => {
                         placeholder="Username"
                         required autoFocus />
                 </fieldset>
-                <fieldset>
+                <fieldset className="mb-2">
                     <label htmlFor="inputPassword"> Password </label>
                     <input ref={password} type="password"
                         id="password"
@@ -54,6 +55,7 @@ const Login = props => {
                     </button>
                 </fieldset>
             </form>
+            </div>
         </main>
     )
 }

@@ -43,8 +43,10 @@ const MyPatients = props => {
   return (
     <>
       <div className="">
+        <div className="patient-profile-detail-text">
       <div className="d-flex justify-content-center mb-5">
-    <h2><strong> My Patients</strong></h2>
+    <h2> My Patient List</h2>
+    </div>
     </div>
     
     

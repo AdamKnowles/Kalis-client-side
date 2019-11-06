@@ -242,7 +242,7 @@ const AssessmentForm = props => {
        }
        </select>
       </fieldset>
-          <fieldset>
+          <fieldset className="mb-3">
             <label className="card-text" htmlFor="urine_amount"> Urine Amount(mL) </label>
             <input
               ref={urine_amount}

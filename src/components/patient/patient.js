@@ -84,8 +84,10 @@ const filterByLastName = (last_name) => {
 
   return (
     <>
-    <div className="d-flex justify-content-center">
-    <h2><strong>Patients</strong></h2>
+    <div className="patient-profile-detail-text">
+    <div className="d-flex justify-content-center mb-4">
+    <h2>Global Patient List</h2>
+    </div>
     </div>
     <div className="d-flex justify-content-center mb-4">
     <Button  

@@ -91,7 +91,7 @@ const VitalSignsEditForm = props => {
   <form className="form--login patient-form" onSubmit={handleEditVitalSigns}>
     <div className="card">
       <div className="card-body">
-    <h1 className="card-title h3 mb-3 font-weight-normal">Enter in Vital Signs</h1>
+    <h1 className="card-title h3 mb-3 font-weight-normal">Edit Vital Signs</h1>
     <fieldset>
       <label className="card-text" htmlFor="temperature"> Temperature </label>
       <input
