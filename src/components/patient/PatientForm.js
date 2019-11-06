@@ -1,11 +1,36 @@
 import React, { useEffect, useState, useRef } from "react";
-import {Button, Card, CardBody} from "reactstrap"
+import {Button, Card, CardBody, Modal} from "reactstrap"
 
 
 
 
 
 const PatientForm = props => {
+
+  const {
+    buttonLabel,
+    className
+  } = props;
+
+  const [modal, setModal] = useState(false);
+  const [nestedModal, setNestedModal] = useState(false);
+  const [closeAll, setCloseAll] = useState(false);
+
+  const toggle = () => setModal(!modal);
+  const toggleNested = () => {
+    setNestedModal(!nestedModal);
+    setCloseAll(false);
+  }
+  const toggleAll = () => {
+    setNestedModal(!nestedModal);
+    setCloseAll(true);
+  }
+
+
+
+
+
+
   const first_name = useRef();
   const last_name = useRef();
   const birth_date = useRef();
@@ -53,7 +78,8 @@ const PatientForm = props => {
         alert("You can not have birth date in the future")
       } 
       else {
-        props.history.push("/");
+        props.getPatients()
+        toggle();
       }
     });
   };
@@ -67,8 +93,12 @@ const PatientForm = props => {
       
       
       {/* Add Patient Form */}
+      <div className="d-flex justify-content-center mb-4">
+      <Button  color="info" onClick={toggle}>Admit Patient</Button>
+      </div>
+      <Modal isOpen={modal} toggle={toggle} className={className}>
       <main style={{ textAlign: "center" }}>
-        <form className="form--login" onSubmit={handleCreate}>
+        <form className="form--login patient-form" onSubmit={handleCreate}>
           <div className="card">
             <div className="card-body">
               <div className="patient-profile-detail-text">
@@ -144,6 +174,7 @@ const PatientForm = props => {
           </div>
         </form>
       </main>
+      </Modal>
     </>
   );
 };
