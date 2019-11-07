@@ -37,6 +37,11 @@ code {
 .search-by-last_name input {
   height: 35px;
 }
+      .danger{
+        color: red;
+        font-weight: 500;
+        
+      }
 
 /* Background Color of Modal */
 .modal-backdrop {
@@ -105,4 +110,9 @@ fieldset {
 
 .patient-profile-detail-text{
   color: #5f5f5f
+}
+
+.hover:hover{
+  
+  color:#4ae1d2;
 }

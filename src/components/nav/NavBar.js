@@ -8,8 +8,8 @@ const NavBar = props => {
 
   return (
     <nav className="navbar navbar-light light-blue flex-md-nowrap">
-      <div style={{ fontSize: "2em", marginLeft: "1em", color: "#068484"}}>
-        <strong>Kalis</strong>
+      <div >
+        <a style={{ fontSize: "2em", marginLeft: "1em", color: "#068484"}} href="/"><strong>Kalis</strong></a>
       </div>
       <ul className="nav nav-pills nav-fill">
         {isAuthenticated() ? (
