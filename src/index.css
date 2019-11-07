@@ -37,11 +37,11 @@ code {
 .search-by-last_name input {
   height: 35px;
 }
-      .danger{
-        color: red;
-        font-weight: 500;
+  .danger{
+    color: red;
+    font-weight: 500;
         
-      }
+    }
 
 /* Background Color of Modal */
 .modal-backdrop {
