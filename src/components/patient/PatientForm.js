@@ -15,6 +15,7 @@ const PatientForm = props => {
   const [modal, setModal] = useState(false);
   const [nestedModal, setNestedModal] = useState(false);
   const [closeAll, setCloseAll] = useState(false);
+  const [patientgender, setPatientGender] = useState([]);
 
   const toggle = () => setModal(!modal);
   const toggleNested = () => {
@@ -84,6 +85,30 @@ const PatientForm = props => {
     });
   };
 
+  const getPatientGender = () => {
+    fetch(`http://localhost:8000/patientgender`, {
+      method: "GET",
+      headers: {
+        
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Token ${localStorage.getItem(
+          "kalis_token"
+      )}`
+        
+      }
+    })
+      .then(response => response.json())
+      .then(setPatientGender)
+  }
+
+  useEffect(() => {
+          
+    getPatientGender();
+    
+  }, []);
+
+
   
   
 
@@ -133,7 +158,7 @@ const PatientForm = props => {
       <select ref={sex} className="form-control" name="sex" required >
       <option defaultValue="Select">Select</option>
       {
-       props.patientgender.map(sex => {
+       patientgender.map(sex => {
            return <option key={sex.id} value={sex.id} >{sex.sex}</option>
           })
        }
