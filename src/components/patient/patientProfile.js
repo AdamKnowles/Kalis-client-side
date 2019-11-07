@@ -20,6 +20,16 @@ const PatientProfile = props => {
   }
 
   const [patient, setPatient] = useState([]);
+  const [mentalstatus, setMentalStatus] = useState([]);
+    const [heartsounds, setHeartSounds] = useState([]);
+    const [breathsounds, setBreathSounds] = useState([]);
+    const [bowelsounds, setBowelSounds] = useState([]);
+    const [edema, setEdema] = useState([]);
+    const [pupilresponse, setPupilResponse] = useState([]);
+    const [npo, setNpo] = useState([]);
+    const [urinecolor, setUrineColor] = useState([]);
+    const [urineodor, setUrineOdor] = useState([]);
+    const [oxygenrate, setOxygenRate] = useState([]);
   const [sex, setSex] = useState([] )
   
 
@@ -40,11 +50,183 @@ const PatientProfile = props => {
       });
   };
 
+  const getMentalStatus = () => {
+    fetch(`http://localhost:8000/mentalstatus`, {
+      method: "GET",
+      headers: {
+        
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Token ${localStorage.getItem(
+          "kalis_token"
+      )}`
+        
+      }
+    })
+      .then(response => response.json())
+      .then(setMentalStatus)
+  }
+  const getHeartSounds = () => {
+    fetch(`http://localhost:8000/heartsounds`, {
+      method: "GET",
+      headers: {
+        
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Token ${localStorage.getItem(
+          "kalis_token"
+      )}`
+        
+      }
+    })
+      .then(response => response.json())
+      .then(setHeartSounds)
+  }
+  const getBreathSounds = () => {
+    fetch(`http://localhost:8000/breathsounds`, {
+      method: "GET",
+      headers: {
+        
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Token ${localStorage.getItem(
+          "kalis_token"
+      )}`
+        
+      }
+    })
+      .then(response => response.json())
+      .then(setBreathSounds)
+  }
+  const getBowelSounds = () => {
+    fetch(`http://localhost:8000/bowelsounds`, {
+      method: "GET",
+      headers: {
+        
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Token ${localStorage.getItem(
+          "kalis_token"
+      )}`
+        
+      }
+    })
+      .then(response => response.json())
+      .then(setBowelSounds)
+  }
+  const getEdema = () => {
+    fetch(`http://localhost:8000/edema`, {
+      method: "GET",
+      headers: {
+        
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Token ${localStorage.getItem(
+          "kalis_token"
+      )}`
+        
+      }
+    })
+      .then(response => response.json())
+      .then(setEdema)
+  }
+  const getPupilResponse = () => {
+    fetch(`http://localhost:8000/pupilresponse`, {
+      method: "GET",
+      headers: {
+        
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Token ${localStorage.getItem(
+          "kalis_token"
+      )}`
+        
+      }
+    })
+      .then(response => response.json())
+      .then(setPupilResponse)
+  }
+  const getNpo = () => {
+    fetch(`http://localhost:8000/npo`, {
+      method: "GET",
+      headers: {
+        
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Token ${localStorage.getItem(
+          "kalis_token"
+      )}`
+        
+      }
+    })
+      .then(response => response.json())
+      .then(setNpo)
+  }
+  const getUrineColor = () => {
+    fetch(`http://localhost:8000/urinecolor`, {
+      method: "GET",
+      headers: {
+        
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Token ${localStorage.getItem(
+          "kalis_token"
+      )}`
+        
+      }
+    })
+      .then(response => response.json())
+      .then(setUrineColor)
+  }
+  const getUrineOdor = () => {
+    fetch(`http://localhost:8000/urineodor`, {
+      method: "GET",
+      headers: {
+        
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Token ${localStorage.getItem(
+          "kalis_token"
+      )}`
+        
+      }
+    })
+      .then(response => response.json())
+      .then(setUrineOdor)
+  }
+  const getOxygenRate = () => {
+    fetch(`http://localhost:8000/oxygenrate`, {
+      method: "GET",
+      headers: {
+        
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Token ${localStorage.getItem(
+          "kalis_token"
+      )}`
+        
+      }
+    })
+      .then(response => response.json())
+      .then(setOxygenRate)
+  }
+  
+
   
   console.log(sex)
   
   useEffect(() => {
     getPatient(props.patientProfileId);
+    getMentalStatus();
+          getHeartSounds();
+          getBreathSounds();
+          getBowelSounds();
+          getEdema();
+          getPupilResponse();
+          getNpo();
+          getUrineColor();
+          getUrineOdor();
+          getOxygenRate();
   }, []);
   
   
@@ -118,7 +300,7 @@ const PatientProfile = props => {
             </div>
         
         {/* rendering the assessments component */}
-      <Assessments mentalstatus={props.mentalstatus} heartsounds={props.heartsounds} npo={props.npo} pupilresponse={props.pupilresponse} edema={props.edema} bowelsounds={props.bowelsounds} breathsounds={props.breathsounds} oxygenrate={props.oxygenrate} urinecolor={props.urinecolor} urineodor={props.urineodor}  {...props} />
+      <Assessments mentalstatus={mentalstatus} heartsounds={heartsounds} npo={npo} pupilresponse={pupilresponse} edema={edema} bowelsounds={bowelsounds} breathsounds={breathsounds} oxygenrate={oxygenrate} urinecolor={urinecolor} urineodor={urineodor}  {...props} />
         </Card>
       </Col>
     </Row>
