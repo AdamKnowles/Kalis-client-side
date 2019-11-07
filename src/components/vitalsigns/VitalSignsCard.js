@@ -25,11 +25,11 @@ const VitalSignsCard = props => {
 
   const heartrateCritical = () =>{
 
-    props.vitalsign.heart_rate > 100 ? setHeartDanger(true) : setHeartDanger(false)
+    props.vitalsign.heart_rate > 100 || props.vitalsign.heart_rate < 50 ? setHeartDanger(true) : setHeartDanger(false)
   }
   const respirationCritical = () =>{
 
-    props.vitalsign.respiration_rate > 30 ? setRespirationDanger(true) : setRespirationDanger(false)
+    props.vitalsign.respiration_rate > 30 || props.vitalsign.respiration_rate < 10 ? setRespirationDanger(true) : setRespirationDanger(false)
   }
   const oxygenCritical = () =>{
 
@@ -37,7 +37,7 @@ const VitalSignsCard = props => {
   }
   const temperatureCritical = () =>{
 
-    props.vitalsign.temperature > 100.0 ? setTemperatureDanger(true) : setTemperatureDanger(false)
+    props.vitalsign.temperature > 100.0 || props.vitalsign.temperature < 97.0 ? setTemperatureDanger(true) : setTemperatureDanger(false)
   }
 
   let classNameHeart = heart_rate_danger ? 'danger' : ''
