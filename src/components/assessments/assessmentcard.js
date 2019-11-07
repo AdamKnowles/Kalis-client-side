@@ -38,7 +38,7 @@ const AssessmentCard = props => {
             <td>{props.assessment.heart_sounds.heart_sounds}</td>
           </tr>
           <tr>
-            <th scope="row">Breath Sounds</th>
+            <th scope="row">Lung Sounds</th>
             <td>{props.assessment.breath_sounds.breath_sounds}</td>
           </tr>
           <tr>

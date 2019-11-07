@@ -55,9 +55,11 @@ const PatientListCard = props => {
       <main className="patients">
         
           <CardBody className="card-body border-bottom">
+            
             <div className="d-flex justify-content-center">
-          <Link className="card-text" to={`/patientProfile/${props.patient.id}`}><h3>
-          {Capitalize(props.patient.last_name)}, {Capitalize(props.patient.first_name)} </h3></Link>
+          <Link className="card-text" to={`/patientProfile/${props.patient.id}`}><h3><div className ="hover">
+          {Capitalize(props.patient.last_name)}, {Capitalize(props.patient.first_name)}</div> </h3></Link>
+          
           </div>
           <div className= "patient-profile-detail-text">
           <div className="d-flex justify-content-center mb-2">   

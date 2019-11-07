@@ -14,23 +14,8 @@ import MyPatients from "./mypatients/mypatientlist"
 const ApplicationViews = () => {
     const { isAuthenticated } = useSimpleAuth();
     
-    
-
-
 
     
-
-        
-
-
-
-
-
-
-
-
-
-
     return (
         <React.Fragment>
         

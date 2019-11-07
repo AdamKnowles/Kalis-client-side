@@ -166,7 +166,7 @@ const AssessmentForm = props => {
        </select>
       </fieldset>
       <fieldset>
-      <label>Breath Sounds</label>
+      <label>Lung Sounds</label>
       <select ref={breath_sounds} className="form-control" name="breath_sounds" required >
       <option defaultValue="Select"></option>
       {
