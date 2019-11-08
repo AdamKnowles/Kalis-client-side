@@ -7,6 +7,8 @@ import AssessmentForm from "./assessmentform"
 // Methods: GET, DELETE
 
 const Assessments = props => {
+
+  // renders the assessment form and the assessment card
     
 
     

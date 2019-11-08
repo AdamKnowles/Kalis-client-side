@@ -8,12 +8,10 @@ import moment from "moment"
 
 
 
-// Author: Adam Knowles
-// Purpose: Show all products and related information that a user has shown for sale
-// Methods: GET, DELETE
+
 
 const AssessmentCard = props => {
-    
+    // the card that defines what the data will look like on the assessment page
   
   return (
     <>

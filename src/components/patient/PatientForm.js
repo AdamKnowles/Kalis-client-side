@@ -7,6 +7,8 @@ import {Button, Card, CardBody, Modal} from "reactstrap"
 
 const PatientForm = props => {
 
+  // can add a patient to the patient list
+
   const {
     buttonLabel,
     className

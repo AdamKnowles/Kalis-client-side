@@ -6,14 +6,14 @@ import {Button, Card, CardBody} from "reactstrap"
 
 
 
-// Author: Adam Knowles
-// Purpose: Show all products and related information that a user has shown for sale
-// Methods: GET, DELETE
+
 
 const PatientListCard = props => {
 
+  // defines what the patient list will render as
+
   const createNewMyPatient = e => {
-    // e.preventDefault();
+    
     
   
     const newMyPatient = {

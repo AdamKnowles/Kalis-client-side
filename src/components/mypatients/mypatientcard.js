@@ -5,11 +5,11 @@ import {Button, Card, CardBody} from "reactstrap"
 
 
 
-// Author: Adam Knowles
-// Purpose: Show all products and related information that a user has shown for sale
-// Methods: GET, DELETE
+
 
 const MyPatientCard = props => {
+
+  // defines what the my patient list will render as
   const Capitalize =(str) =>{
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
