@@ -8,10 +8,11 @@ import VitalSignForm from "../vitalsigns/vitalsignform"
 import AssessmentForm from "../assessments/assessmentform";
 
 
-// Author: Adam Knowles
-// Purpose: Show the category Profile. This includes information(name, price, quantity) about each product the category contains.
+
 
 const PatientProfile = props => {
+
+  // renders the patient profile, which renders all assessment and vital sign data
 
   const [activeTab, setActiveTab] = useState('1');
       
@@ -235,7 +236,6 @@ const PatientProfile = props => {
   }
   
 
-  //If the category ID matches the categoryProfile ID, show all products and information associated with that category
 
   return (
     <><div >

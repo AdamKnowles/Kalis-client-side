@@ -12,11 +12,11 @@ import moment from "moment"
 
 
 
-// Author: Adam Knowles
-// Purpose: Show all products and related information that a user has shown for sale
-// Methods: GET, DELETE
+
 
 const VitalSignsCard = props => {
+
+  // defines how the individual vital signs are rendered
 
   const [heart_rate_danger, setHeartDanger] =  useState(false);
   const [oxygen_danger, setOxygenDanger] =  useState(false);

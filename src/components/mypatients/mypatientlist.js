@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react"
 import MyPatientCard from "./mypatientcard"
 
-// Author: Adam Knowles
-// Purpose: Show all products and related information that a user has shown for sale
-// Methods: GET, DELETE
+
 
 const MyPatients = props => {
+
+  // renders the my patient card
+
+
   const [patients, setPatients] = useState([])
   
 

@@ -3,9 +3,7 @@ import PatientListCard from "./PatientListCard";
 import {Button, Card, CardBody} from "reactstrap"
 import PatientForm from "./PatientForm"
 
-// Author: Adam Knowles
-// Purpose: Show all products and related information that a user has shown for sale
-// Methods: GET, DELETE
+// renders the patient list card
 
 const PatientList = props => {
   const [patients, setPatients] = useState([])

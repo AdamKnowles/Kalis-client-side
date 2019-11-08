@@ -5,6 +5,8 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const VitalSignForm = props => {
 
+  // can add a set of vital signs to the vital sign list
+
 
     
 

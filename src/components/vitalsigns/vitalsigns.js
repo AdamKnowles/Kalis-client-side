@@ -7,6 +7,8 @@ import VitalSignForm from "./vitalsignform"
 // Methods: GET, DELETE
 
 const VitalSigns = props => {
+
+  // renders the vital sign form and and the vital sign card
     
 
     

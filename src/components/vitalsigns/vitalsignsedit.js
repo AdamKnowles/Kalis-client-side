@@ -4,6 +4,8 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const VitalSignsEditForm = props => {
 
+  // can edit a set of vital signs
+
     const {
         buttonLabel,
         className
