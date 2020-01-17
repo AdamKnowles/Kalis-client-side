@@ -30,7 +30,7 @@ const Login = props => {
         <main style={{textAlign:"center"}}>
             <div className="patient-profile-detail-text">
             <form className="form--login" onSubmit={handleLogin}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Sign In</h1>
+                {/* <h1 className="h3 mb-3 font-weight-normal">Please Sign In</h1> */}
                 <fieldset>
                     <label htmlFor="inputEmail"> Username</label>
                     <input ref={username} type="username"
